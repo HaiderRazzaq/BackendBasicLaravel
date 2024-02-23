@@ -23,3 +23,7 @@ Route::get('/', function () {
 
 //best way to make view route 'haider'
 Route::view('/classrooms','classrooms.classrooms');
+Route::get('/classrooms/create',function(){
+    return view('classrooms.addclassroom');
+
+});
