@@ -24,7 +24,7 @@
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav me-auto fs-5 my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home Page</a>
+                        <a class="nav-link active" aria-current="page" href="{{route('index')}}">Home Page</a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -55,8 +55,8 @@
                             Classrooms
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Add Classrooms</a></li>
-                            <li><a class="dropdown-item" href="#">Classrooms list</a></li>
+                            <li><a class="dropdown-item" href="{{route('classrooms.create')}}">Add Classrooms</a></li>
+                            <li><a class="dropdown-item" href="{{route('classrooms.index')}}">Classrooms list</a></li>
                         </ul>
                     </li>
 
@@ -67,7 +67,7 @@
 
     @yield('addclassroom')
     @yield('classroomslist')
-
+    @yield('index')
 
 
 
