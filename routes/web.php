@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/classrooms',function(){
-return view('classrooms.classrooms');
-});
+
+// Route::get('/classrooms',function(){
+// return view('classrooms.classrooms');
+// });
+
+//best way to make view route 'haider'
+Route::view('/classrooms','classrooms.classrooms');
