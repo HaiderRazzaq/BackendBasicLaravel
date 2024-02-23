@@ -1,6 +1,8 @@
 @extends('layout.app')
 
-
+@section('title')
+Classrooms lists
+@endsection
 @section('classroomslist')
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
