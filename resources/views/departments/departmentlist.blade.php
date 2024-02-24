@@ -4,7 +4,7 @@
     Departments list
 @endsection
 
-@section('departments list')
+@section('departmentslist')
     <div class="container mt-5">
         <h2>Departments List</h2>
         <table class="table">

@@ -9,11 +9,12 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
 </head>
 <style>
-    .inputform{
-        margin:auto;
+    .inputform {
+        margin: auto;
         width: 70%
     }
 </style>
+
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
         <div class="container-fluid">
@@ -24,7 +25,7 @@
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav me-auto fs-5 my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{route('index')}}">Home Page</a>
+                        <a class="nav-link active" aria-current="page" href="{{ route('index') }}">Home Page</a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -55,8 +56,8 @@
                             Classrooms
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{route('classrooms.create')}}">Add Classrooms</a></li>
-                            <li><a class="dropdown-item" href="{{route('classrooms.index')}}">Classrooms list</a></li>
+                            <li><a class="dropdown-item" href="{{ route('classrooms.create') }}">Add Classrooms</a></li>
+                            <li><a class="dropdown-item" href="{{ route('classrooms.index') }}">Classrooms list</a></li>
                         </ul>
                     </li>
 
@@ -71,6 +72,8 @@
     @yield('editclassroom')
     @yield('singleclassroom')
     @yield('adddepartment')
+    @yield('departmentslist')
+    @yield('editdepartment')
     @yield('singledeaprtment')
 
 
