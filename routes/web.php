@@ -28,7 +28,13 @@ Route::view('/classrooms', 'classrooms.classrooms')->name('classrooms.index');
 
 Route::view('/classrooms/create', 'classrooms.addclassroom')->name('classrooms.create');
 
-Route::view('/classrooms/edit', 'classrooms.editclassroom')->name('classrooms.edit');
+Route::get('/classrooms/{class}', function ($classid) {
+    return view('classrooms.singleclassroom', compact('classid'));})->name('classrooms.show');
+
+Route::get('/classrooms/{classid}/edit', function ($classid) {
+    return view('classrooms.editclassroom', ['classid'=>$classid]);})->name('classrooms.edit');
+
+
 
 Route::get('/students', function () {
     return view('students.studentslist');})->name('students.index');
@@ -36,5 +42,9 @@ Route::get('/students', function () {
 Route::get('/students/create', function () {
     return view('students.addstudent');})->name('students.create');
 
-Route::get('/students/edit', function () {
-    return view('students.editstudent');})->name('students.edit');
+Route::get('/students/{studentid}',function($studentid){
+    return view('students.singlestudent',['studentid'=>$studentid]);})->name('students.show');
+
+Route::get('/students/{studentid}/edit', function ($studentid) {
+    return view('students.editstudent',compact('studentid'));})->name('students.edit');
+
