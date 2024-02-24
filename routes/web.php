@@ -26,6 +26,15 @@ Route::view('/', 'index')->name('index');
 //best way to make view route 'haider'
 Route::view('/classrooms', 'classrooms.classrooms')->name('classrooms.index');
 
-Route::view('/classrooms/create','classrooms.addclassroom')->name('classrooms.create');
+Route::view('/classrooms/create', 'classrooms.addclassroom')->name('classrooms.create');
 
-Route::view('/classrooms/edit','classrooms.editclassroom')->name('classrooms.edit');
+Route::view('/classrooms/edit', 'classrooms.editclassroom')->name('classrooms.edit');
+
+Route::get('/students', function () {
+    return view('students.studentslist');})->name('students.index');
+
+Route::get('/students/create', function () {
+    return view('students.addstudent');})->name('students.create');
+
+Route::get('/students/edit', function () {
+    return view('students.editstudent');})->name('students.edit');
