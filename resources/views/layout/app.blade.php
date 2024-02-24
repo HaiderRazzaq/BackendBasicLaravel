@@ -34,8 +34,8 @@
                             Students
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Add students</a></li>
-                            <li><a class="dropdown-item" href="#">Students list</a></li>
+                            <li><a class="dropdown-item" href="{{route('students.create')}}">Add students</a></li>
+                            <li><a class="dropdown-item" href="{{route('students.index')}}">Students list</a></li>
                         </ul>
                     </li>
 
@@ -45,8 +45,8 @@
                             Departments
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Add Departments</a></li>
-                            <li><a class="dropdown-item" href="#">Departments list</a></li>
+                            <li><a class="dropdown-item" href="{{route('departments.create')}}">Add Departments</a></li>
+                            <li><a class="dropdown-item" href="{{route('departments.index')}}">Departments list</a></li>
                         </ul>
                     </li>
 

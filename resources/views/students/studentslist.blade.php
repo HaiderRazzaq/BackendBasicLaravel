@@ -5,7 +5,6 @@
 @endsection
 
 @section('studentslist')
-
     <div class="container mt-5">
         <h2>Students list</h2>
         <table class="table">
@@ -34,8 +33,10 @@
                     <td id="address">1234 Main St</td>
                     <td id="city">Cityville</td>
                     <td>
-                        <button type="button" class="btn btn-primary btn-sm">Edit</button>
-                        <button type="button" class="btn btn-info btn-sm">Show</button>
+                        <a href="{{ route('students.edit', 3) }}" target="_blank"><button type="button"
+                                class="btn btn-primary btn-sm">Edit</button></a>
+                        <a href="{{ route('students.show', 3) }}" target="_blank" rel="noopener noreferrer"><button
+                                type="button" class="btn btn-info btn-sm">Show</button></a>
                         <button type="button" class="btn btn-danger btn-sm">Delete</button>
                     </td>
                 </tr>

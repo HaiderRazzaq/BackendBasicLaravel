@@ -20,8 +20,10 @@
                     <td id="departmentName">Sample Department</td>
                     <td id="owner">John Doe</td>
                     <td>
-                        <button type="button" class="btn btn-primary btn-sm">Edit</button>
-                        <button type="button" class="btn btn-info btn-sm">Show</button>
+                        <a href="{{ route('departments.edit', 3) }}" target="_blank"><button type="button"
+                                class="btn btn-primary btn-sm">Edit</button></a>
+                        <a href="{{ route('departments.show', 3) }}" target="_blank" rel="noopener noreferrer"><button
+                                type="button" class="btn btn-info btn-sm">Show</button></a>
                         <button type="button" class="btn btn-danger btn-sm">Delete</button>
                     </td>
                 </tr>

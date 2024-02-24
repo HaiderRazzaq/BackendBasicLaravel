@@ -48,3 +48,16 @@ Route::get('/students/{studentid}',function($studentid){
 Route::get('/students/{studentid}/edit', function ($studentid) {
     return view('students.editstudent',compact('studentid'));})->name('students.edit');
 
+
+
+Route::get('/departments',function(){
+return view('departments.departmentlist');})->name('departments.index');
+
+Route::get('/departments/create',function(){
+    return view('departments.adddepartment');})->name('departments.create');
+
+Route::get('/departments/{departmentid}',function($departmentid){
+    return view('departments.singledepartment',['departmentid'=>$departmentid]);})->name('departments.show');
+
+Route::get('/departments/{departmentid}/edit',function($departmentid){
+    return view('departments.editdepartment',compact('departmentid'));})->name('departments.edit');
