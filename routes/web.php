@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\DepartmentController;
-use App\Http\Controllers\StudentsController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,13 +35,13 @@ Route::get('/classrooms/{class}', [ClassroomController::class, 'show'])->name('c
 
 Route::get('/classrooms/{classid}/edit', [ClassroomController::class, 'edit'])->name('classrooms.edit');
 
-Route::get('/students', [StudentsController::class, 'index'])->name('students.index');
+Route::get('/students', [StudentController::class, 'index'])->name('students.index');
 
-Route::get('/students/create', [StudentsController::class, 'create'])->name('students.create');
+Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
 
-Route::get('/students/{studentid}', [StudentsController::class, 'show'])->name('students.show');
+Route::get('/students/{studentid}', [StudentController::class, 'show'])->name('students.show');
 
-Route::get('/students/{studentid}/edit', [StudentsController::class, 'edit'])->name('students.edit');
+Route::get('/students/{studentid}/edit', [StudentController::class, 'edit'])->name('students.edit');
 
 Route::get('/departments', [DepartmentController::class, 'index'])->name('departments.index');
 
