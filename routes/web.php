@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClassroomController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,16 +24,14 @@ Route::view('/', 'index')->name('index');
 // return view('classrooms.classrooms');
 // });
 
-//best way to make view route 'haider'
-Route::view('/classrooms', 'classrooms.classrooms')->name('classrooms.index');
+//random way to use controller
+Route::get('/classrooms', ['App\Http\Controllers\ClassroomController','index'])->name('classrooms.index');
+//another way to use controller
+Route::get('/classrooms/create',[ClassroomController::class,'create'])->name('classrooms.create');
 
-Route::view('/classrooms/create', 'classrooms.addclassroom')->name('classrooms.create');
+Route::get('/classrooms/{class}',[ClassroomController::class,'show'])->name('classrooms.show');
 
-Route::get('/classrooms/{class}', function ($classid) {
-    return view('classrooms.singleclassroom', compact('classid'));})->name('classrooms.show');
-
-Route::get('/classrooms/{classid}/edit', function ($classid) {
-    return view('classrooms.editclassroom', ['classid'=>$classid]);})->name('classrooms.edit');
+Route::get('/classrooms/{classid}/edit', [ClassroomController::class,'edit'])->name('classrooms.edit');
 
 
 
