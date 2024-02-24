@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClassroomController;
+use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\StudentsController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,34 +27,26 @@ Route::view('/', 'index')->name('index');
 // });
 
 //random way to use controller
-Route::get('/classrooms', ['App\Http\Controllers\ClassroomController','index'])->name('classrooms.index');
+Route::get('/classrooms', ['App\Http\Controllers\ClassroomController', 'index'])->name('classrooms.index');
 //another way to use controller
-Route::get('/classrooms/create',[ClassroomController::class,'create'])->name('classrooms.create');
+Route::get('/classrooms/create', [ClassroomController::class, 'create'])->name('classrooms.create');
 
-Route::get('/classrooms/{class}',[ClassroomController::class,'show'])->name('classrooms.show');
+Route::get('/classrooms/{class}', [ClassroomController::class, 'show'])->name('classrooms.show');
 
-Route::get('/classrooms/{classid}/edit', [ClassroomController::class,'edit'])->name('classrooms.edit');
+Route::get('/classrooms/{classid}/edit', [ClassroomController::class, 'edit'])->name('classrooms.edit');
 
+Route::get('/students', [StudentsController::class, 'index'])->name('students.index');
 
+Route::get('/students/create', [StudentsController::class, 'create'])->name('students.create');
 
-Route::get('/students', [StudentsController::class,'index'])->name('students.index');
+Route::get('/students/{studentid}', [StudentsController::class, 'show'])->name('students.show');
 
-Route::get('/students/create', [StudentsController::class,'create'])->name('students.create');
+Route::get('/students/{studentid}/edit', [StudentsController::class, 'edit'])->name('students.edit');
 
-Route::get('/students/{studentid}',[StudentsController::class,'show'])->name('students.show');
+Route::get('/departments', [DepartmentController::class, 'index'])->name('departments.index');
 
-Route::get('/students/{studentid}/edit', [StudentsController::class,'edit'])->name('students.edit');
+Route::get('/departments/create', [DepartmentController::class, 'create'])->name('departments.create');
 
+Route::get('/departments/{departmentid}', [DepartmentController::class, 'show'])->name('departments.show');
 
-
-Route::get('/departments',function(){
-return view('departments.departmentlist');})->name('departments.index');
-
-Route::get('/departments/create',function(){
-    return view('departments.adddepartment');})->name('departments.create');
-
-Route::get('/departments/{departmentid}',function($departmentid){
-    return view('departments.singledepartment',['departmentid'=>$departmentid]);})->name('departments.show');
-
-Route::get('/departments/{departmentid}/edit',function($departmentid){
-    return view('departments.editdepartment',compact('departmentid'));})->name('departments.edit');
+Route::get('/departments/{departmentid}/edit', [DepartmentController::class, 'edit'])->name('departments.edit');
