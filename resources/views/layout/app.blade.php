@@ -71,12 +71,14 @@
     @yield('classroomslist')
     @yield('editclassroom')
     @yield('singleclassroom')
+    
     @yield('adddepartment')
     @yield('departmentslist')
     @yield('editdepartment')
     @yield('singledeaprtment')
-    @yield('addstudent')
 
+    @yield('addstudent')
+    @yield('editstudent')
 
 
 
