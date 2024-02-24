@@ -11,10 +11,11 @@ class StudentsController extends Controller
     public function create() {
         return view('students.addstudent');}
 
-    public function edit($studentid){
+    public function show($studentid){
         return view('students.singlestudent',['studentid'=>$studentid]);}
 
-
+    public function edit($studentid) {
+        return view('students.editstudent',compact('studentid'));}
 
 
 }
