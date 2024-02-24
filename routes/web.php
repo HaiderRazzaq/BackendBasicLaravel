@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClassroomController;
+use App\Http\Controllers\StudentsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,8 +36,7 @@ Route::get('/classrooms/{classid}/edit', [ClassroomController::class,'edit'])->n
 
 
 
-Route::get('/students', function () {
-    return view('students.studentslist');})->name('students.index');
+Route::get('/students', [StudentsController::class,'index'])->name('students.index');
 
 Route::get('/students/create', function () {
     return view('students.addstudent');})->name('students.create');
