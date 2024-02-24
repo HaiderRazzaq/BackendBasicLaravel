@@ -28,3 +28,4 @@ Route::view('/classrooms', 'classrooms.classrooms')->name('classrooms.index');
 
 Route::view('/classrooms/create','classrooms.addclassroom')->name('classrooms.create');
 
+Route::view('/classrooms/edit','classrooms.editclassroom')->name('classrooms.edit');

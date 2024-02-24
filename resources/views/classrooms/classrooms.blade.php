@@ -22,7 +22,9 @@ Classrooms lists
                 <td id="className">Sample Class</td>
                 <td id="owner">John Doe</td>
                 <td>
-                    <button type="button" class="btn btn-primary btn-sm">Edit</button>
+                    {{-- <button type="button" class="btn btn-primary btn-sm">Edit</button> --}}
+                    <a href="{{route('classrooms.edit')}}" target="_blank"><button type="button" class="btn btn-primary btn-sm">Edit</button></a>
+
                     <button type="button" class="btn btn-info btn-sm">Show</button>
                     <button type="button" class="btn btn-danger btn-sm">Delete</button>
                 </td>

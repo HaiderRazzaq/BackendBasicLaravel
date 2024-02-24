@@ -68,7 +68,7 @@
     @yield('addclassroom')
     @yield('classroomslist')
     @yield('index')
-
+    @yield('editclassroom')
 
 
 
