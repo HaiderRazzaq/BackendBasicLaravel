@@ -71,18 +71,15 @@
     @yield('classroomslist')
     @yield('editclassroom')
     @yield('singleclassroom')
-    
+
     @yield('adddepartment')
     @yield('departmentslist')
     @yield('editdepartment')
     @yield('singledeaprtment')
 
     @yield('addstudent')
+    @yield('studentslist')
     @yield('editstudent')
-
-
-
-
     @yield('singlestudent')
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
