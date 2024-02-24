@@ -38,8 +38,7 @@ Route::get('/classrooms/{classid}/edit', [ClassroomController::class,'edit'])->n
 
 Route::get('/students', [StudentsController::class,'index'])->name('students.index');
 
-Route::get('/students/create', function () {
-    return view('students.addstudent');})->name('students.create');
+Route::get('/students/create', [StudentsController::class,'create'])->name('students.create');
 
 Route::get('/students/{studentid}',function($studentid){
     return view('students.singlestudent',['studentid'=>$studentid]);})->name('students.show');
