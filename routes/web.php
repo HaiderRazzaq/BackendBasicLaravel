@@ -43,6 +43,8 @@ Route::get('/students', [StudentController::class, 'index'])->name('students.ind
 
 Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
 
+Route::post('/students',[StudentController::class,'store'])->name('students.store');
+
 Route::get('/students/{studentid}', [StudentController::class, 'show'])->name('students.show');
 
 Route::get('/students/{studentid}/edit', [StudentController::class, 'edit'])->name('students.edit');

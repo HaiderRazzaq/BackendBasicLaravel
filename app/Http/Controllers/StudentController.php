@@ -8,14 +8,21 @@ class StudentController extends Controller
     {
         return view('students.studentslist');}
 
-    public function create() {
+    public function create()
+    {
         return view('students.addstudent');}
 
-    public function show($studentid){
-        return view('students.singlestudent',['studentid'=>$studentid]);}
+    public function store()
+    {
+        $addnewstudents = request()->all();
+        dd($addnewstudents);
+    }
+    public function show($studentid)
+    {
+        return view('students.singlestudent', ['studentid' => $studentid]);}
 
-    public function edit($studentid) {
-        return view('students.editstudent',compact('studentid'));}
-
+    public function edit($studentid)
+    {
+        return view('students.editstudent', compact('studentid'));}
 
 }
