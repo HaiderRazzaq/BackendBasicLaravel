@@ -12,6 +12,11 @@ class DepartmentController extends Controller
     {
         return view('departments.adddepartment');}
 
+    public function store(){
+        $addnewdepartments=request();
+        dd($addnewdepartments);
+    }
+
     public function show($departmentid)
     {
         return view('departments.singledepartment', ['departmentid' => $departmentid]);}

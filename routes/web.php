@@ -52,10 +52,7 @@ Route::get('/departments', [DepartmentController::class, 'index'])->name('depart
 
 Route::get('/departments/create', [DepartmentController::class, 'create'])->name('departments.create');
 
-Route::post('/departments',function(){
-    $departments=request();
-    dd($departments);
-})->name('departments.store');
+Route::post('/departments',[DepartmentController::class,'store'])->name('departments.store');
 
 Route::get('/departments/{departmentid}', [DepartmentController::class, 'show'])->name('departments.show');
 
