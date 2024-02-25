@@ -54,7 +54,11 @@ Show single student information
             <td colspan="2">Larry the Bird</td>
 
         </tr>
+        <tr>
+            <th scope="row">Last Update</th>
+            <td colspan="2">2022</td>
 
+        </tr>
     </tbody>
 <td colspan="2">
     <button type="button" class="btn btn-primary btn-sm">Edit</button>
