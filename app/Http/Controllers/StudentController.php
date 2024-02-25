@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\student;
+
 class StudentController extends Controller
 {
     public function index()
@@ -14,8 +16,18 @@ class StudentController extends Controller
 
     public function store()
     {
-        $addnewstudents = request()->all();
-        dd($addnewstudents);
+        $studentsdata = request()->all();
+        $student = new student;
+        $student->first_name = $studentsdata['firstname'];
+        $student->last_name = $studentsdata['lastname'];
+        $student->email = $studentsdata['email'];
+        $student->phone = $studentsdata['phone'];
+        $student->department = $studentsdata['departmentname'];
+        $student->classroom = $studentsdata['classroom'];
+        $student->address = $studentsdata['address'];
+        $student->city = $studentsdata['city'];
+        $student->save();
+        return to_route('students.create');
     }
     public function show($studentid)
     {
