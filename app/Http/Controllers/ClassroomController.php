@@ -12,6 +12,11 @@ class ClassroomController extends Controller
     {
         return view('classrooms.addclassroom');
     }
+
+    public function store(){
+        $newclassroom= request()->all();
+        dd($newclassroom);
+    }
     public function show($classid)
     {
         return view('classrooms.singleclassroom', compact('classid'));

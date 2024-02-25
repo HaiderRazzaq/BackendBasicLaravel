@@ -35,10 +35,7 @@ Route::get('/classrooms/{class}', [ClassroomController::class, 'show'])->name('c
 
 Route::get('/classrooms/{classid}/edit', [ClassroomController::class, 'edit'])->name('classrooms.edit');
 
-Route::post('/classrooms',function(){
-    $classrooms=request()->all();
-    @dd($classrooms);
-})->name('classrooms.store');
+Route::post('/classrooms',[ClassroomController::class,'store'])->name('classrooms.store');
 
 
 Route::get('/students', [StudentController::class, 'index'])->name('students.index');
