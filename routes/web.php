@@ -31,11 +31,12 @@ Route::get('/classrooms', ['App\Http\Controllers\ClassroomController', 'index'])
 //another way to use controller
 Route::get('/classrooms/create', [ClassroomController::class, 'create'])->name('classrooms.create');
 
+Route::post('/classrooms',[ClassroomController::class,'store'])->name('classrooms.store');
+
 Route::get('/classrooms/{class}', [ClassroomController::class, 'show'])->name('classrooms.show');
 
 Route::get('/classrooms/{classid}/edit', [ClassroomController::class, 'edit'])->name('classrooms.edit');
 
-Route::post('/classrooms',[ClassroomController::class,'store'])->name('classrooms.store');
 
 
 Route::get('/students', [StudentController::class, 'index'])->name('students.index');
@@ -46,9 +47,15 @@ Route::get('/students/{studentid}', [StudentController::class, 'show'])->name('s
 
 Route::get('/students/{studentid}/edit', [StudentController::class, 'edit'])->name('students.edit');
 
+
 Route::get('/departments', [DepartmentController::class, 'index'])->name('departments.index');
 
 Route::get('/departments/create', [DepartmentController::class, 'create'])->name('departments.create');
+
+Route::post('/departments',function(){
+    $departments=request();
+    dd($departments);
+})->name('departments.store');
 
 Route::get('/departments/{departmentid}', [DepartmentController::class, 'show'])->name('departments.show');
 
