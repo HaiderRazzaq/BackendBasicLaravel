@@ -32,7 +32,8 @@ class StudentController extends Controller
     }
     public function show($studentid)
     {
-        return view('students.singlestudent', ['studentid' => $studentid]);}
+        $student=student::find($studentid);
+        return view('students.singlestudent', ['singlestudent' => $student]);}
 
     public function edit($studentid)
     {
