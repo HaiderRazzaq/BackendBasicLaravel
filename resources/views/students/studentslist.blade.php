@@ -3,12 +3,13 @@
 @section('title')
     Students list
 @endsection
-
+{{-- @dd($students) --}}
 @section('studentslist')
     <div class="container mt-5">
         <h2>Students list</h2>
         <table class="table">
             <thead>
+
                 <tr>
                     <th scope="col">First Name</th>
                     <th scope="col">Last Name</th>
@@ -18,26 +19,30 @@
                     <th scope="col">Classroom</th>
                     <th scope="col">Address</th>
                     <th scope="col">City</th>
+                    <th scope="col">Created Date</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <!-- Row for First Name form -->
-                <tr>
-                    <td id="firstName">John</td>
-                    <td id="lastName">Doe</td>
-                    <td id="email">john.doe@example.com</td>
-                    <td id="phone">(555) 123-4567</td>
-                    <td id="department">Department 1</td>
-                    <td id="classroom">Classroom 1</td>
-                    <td id="address">1234 Main St</td>
-                    <td id="city">Cityville</td>
-                    <td>
-                        <a href="{{ route('students.edit', 3) }}" target="_blank"><button type="button"
-                                class="btn btn-primary btn-sm">Edit</button></a>
-                        <a href="{{ route('students.show', 3) }}" target="_blank" rel="noopener noreferrer"><button
-                                type="button" class="btn btn-info btn-sm">Show</button></a>
-                        <button type="button" class="btn btn-danger btn-sm">Delete</button>
-                    </td>
-                </tr>
+                @foreach ($students as $student)
+                    <tr>
+                        <td id="firstName">{{$student->first_name}}</td>
+                        <td id="lastName">{{$student['last_name']}}</td>
+                        <td id="email">{{$student->email}}</td>
+                        <td id="phone">{{$student->phone}}</td>
+                        <td id="department">{{$student->department}}</td>
+                        <td id="classroom">{{$student['classroom']}}</td>
+                        <td id="address">{{$student->address}}</td>
+                        <td id="city">{{$student->city}}</td>
+                        <td id="createdate">{{$student->created_at}}</td>
+                        <td>
+                            <a href="{{ route('students.edit', $student->id) }}" target="_blank"><button type="button"
+                                    class="btn btn-primary btn-sm">Edit</button></a>
+                            <a href="{{ route('students.show', $student->id) }}" target="_blank" rel="noopener noreferrer"><button
+                                    type="button" class="btn btn-info btn-sm">Show</button></a>
+                            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                        </td>
+                    </tr>
+                @endforeach
             @endsection

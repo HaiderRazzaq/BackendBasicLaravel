@@ -8,7 +8,8 @@ class StudentController extends Controller
 {
     public function index()
     {
-        return view('students.studentslist');}
+        $students = student::all();
+        return view('students.studentslist', compact('students'));}
 
     public function create()
     {
