@@ -37,6 +37,7 @@ class StudentController extends Controller
 
     public function edit($studentid)
     {
-        return view('students.editstudent', compact('studentid'));}
+        $student=student::findOrfail($studentid);
+        return view('students.editstudent', compact('student'));}
 
 }

@@ -10,19 +10,19 @@
 <form class="row g-3 w-a inputform">
     <div class="col-md-6 mb-3">
         <label for="inputFirstName" class="form-label">Edit First Name</label>
-        <input type="text" class="form-control" id="inputFirstName" required>
+        <input type="text" class="form-control" value="{{$student->first_name}}" id="inputFirstName" required>
     </div>
     <div class="col-md-6 mb-3">
         <label for="inputLastName" class="form-label">Edit Last Name</label>
-        <input type="text" class="form-control" id="inputLastName" required>
+        <input type="text" class="form-control" value="{{$student->last_name}}" id="inputLastName" required>
     </div>
     <div class="col-md-6 mb-3">
         <label for="inputEmail" class="form-label">Edit Email</label>
-        <input type="email" class="form-control" id="inputEmail" required>
+        <input type="email" class="form-control" value="{{$student->email}}" id="inputEmail" required>
     </div>
     <div class="col-md-6 mb-3">
         <label for="inputPhone" class="form-label">Edit Phone</label>
-        <input type="tel" class="form-control" id="inputPhone" required>
+        <input type="tel" class="form-control" value="{{$student->phone}}" id="inputPhone" required>
     </div>
     <div class="col-md-6 mb-3">
         <label for="inputDepartment" class="form-label">Edit Department</label>
@@ -45,12 +45,12 @@
 
     <div class="col-md-6 mb-3">
         <label for="inputAddress" class="form-label">Edit Address</label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
+        <input type="text" class="form-control" id="inputAddress" value="{{$student->address}}" placeholder="1234 Main St" required>
     </div>
 
     <div class="col-md-6 mb-3">
         <label for="inputCity" class="form-label">Edit City</label>
-        <input type="text" class="form-control" id="inputCity" required>
+        <input type="text" class="form-control" id="inputCity" value="{{$student->city}}" required>
     </div>
 
 
