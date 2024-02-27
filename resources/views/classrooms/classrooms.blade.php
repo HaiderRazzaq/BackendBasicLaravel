@@ -8,7 +8,7 @@
 @section('classroomslist')
     <div class="container mt-5">
         <h2>Form Data Table</h2>
-        <table class="table">
+        <table class="table table-bordered table-hover">
             <thead>
                 <tr>
                     <th scope="col">Class Name</th>

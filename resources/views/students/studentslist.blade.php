@@ -7,7 +7,7 @@
 @section('studentslist')
     <div class="container mt-5">
         <h2>Students list</h2>
-        <table class="table">
+        <table class="table table-bordered table-hover">
             <thead>
 
                 <tr>
