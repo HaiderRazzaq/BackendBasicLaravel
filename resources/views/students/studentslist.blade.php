@@ -20,11 +20,11 @@
                     <th scope="col">Address</th>
                     <th scope="col">City</th>
                     <th scope="col">Created Date</th>
+                    <th scope="col">Last Update</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Row for First Name form -->
                 @foreach ($students as $student)
                     <tr>
                         <td id="firstName">{{ $student->first_name }}</td>
@@ -36,6 +36,7 @@
                         <td id="address">{{ $student->address }}</td>
                         <td id="city">{{ $student->city }}</td>
                         <td id="createdate">{{ $student->created_at }}</td>
+                        <td id="createdate">{{ $student->updated_at }}</td>
                         <td>
                             <a href="{{ route('students.edit', $student->id) }}" target="_blank"><button type="button"
                                     class="btn btn-primary btn-sm">Edit</button></a>

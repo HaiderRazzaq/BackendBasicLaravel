@@ -32,12 +32,29 @@ class StudentController extends Controller
     }
     public function show($studentid)
     {
-        $student=student::find($studentid);
+        $student = student::find($studentid);
         return view('students.singlestudent', ['singlestudent' => $student]);}
 
     public function edit($studentid)
     {
-        $student=student::findOrfail($studentid);
+        $student = student::findOrfail($studentid);
         return view('students.editstudent', compact('student'));}
+
+    public function update($studentid){
+        $test=student::findOrFail($studentid)->update([
+            'first_name'=>request()->firstname,
+            'last_name'=>request()->lastname,
+            'email'=>request()->email,
+            'phone'=>request()->phone,
+            'department'=>request()->departmentname,
+            'classroom'=>request()->classroom,
+            'address'=>request()->address,
+            'city'=>request()->city]);
+
+            if($test==true){
+
+                return ('its good');
+            }
+    }
 
 }
