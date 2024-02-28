@@ -38,12 +38,21 @@
                         <td id="createdate">{{ $student->created_at }}</td>
                         <td id="createdate">{{ $student->updated_at }}</td>
                         <td>
-                            <a href="{{ route('students.edit', $student->id) }}" target="_blank"><button type="button"
-                                    class="btn btn-primary btn-sm">Edit</button></a>
-                            <a href="{{ route('students.show', $student->id) }}" target="_blank"
-                                rel="noopener noreferrer"><button type="button"
-                                    class="btn btn-info btn-sm">Show</button></a>
-                            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                            <div class="btn-group" role="group">
+                                <a href="{{ route('students.edit', $student->id) }}" target="_blank"
+                                    class="btn btn-primary btn-sm">
+                                    Edit
+                                </a>
+                                <a href="{{ route('students.show', $student->id) }}" target="_blank"
+                                    rel="noopener noreferrer" class="btn btn-info btn-sm">
+                                    Show
+                                </a>
+                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                                    data-target="#deleteModal">
+                                    Delete
+                                </button>
+                            </div>
+
                         </td>
                     </tr>
                 @endforeach

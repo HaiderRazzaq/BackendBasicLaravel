@@ -28,6 +28,7 @@ class StudentController extends Controller
         $student->address = $studentsdata['address'];
         $student->city = $studentsdata['city'];
         $student->save();
+        dd($student);
         return to_route('students.create');
     }
     public function show($studentid)
@@ -40,21 +41,22 @@ class StudentController extends Controller
         $student = student::findOrfail($studentid);
         return view('students.editstudent', compact('student'));}
 
-    public function update($studentid){
-        $student=student::findOrFail($studentid)->update([
-            'first_name'=>request()->firstname,
-            'last_name'=>request()->lastname,
-            'email'=>request()->email,
-            'phone'=>request()->phone,
-            'department'=>request()->departmentname,
-            'classroom'=>request()->classroom,
-            'address'=>request()->address,
-            'city'=>request()->city]);
-            if($student==true){
-                return back()->with('success','Student has been updated successfully!');
-            }else{
-                return back()->withErrors(['Server Error']);
-            }
+    public function update($studentid)
+    {
+        $student = student::findOrFail($studentid)->update([
+            'first_name' => request()->firstname,
+            'last_name' => request()->lastname,
+            'email' => request()->email,
+            'phone' => request()->phone,
+            'department' => request()->departmentname,
+            'classroom' => request()->classroom,
+            'address' => request()->address,
+            'city' => request()->city]);
+        if ($student == true) {
+            return back()->with('success', 'Student has been updated successfully!');
+        } else {
+            return back()->withErrors(['Server Error']);
+        }
     }
 
 }
