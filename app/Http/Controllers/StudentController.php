@@ -43,7 +43,8 @@ class StudentController extends Controller
 
     public function update($studentid)
     {
-        $student = student::findOrFail($studentid)->update([
+        $student = student::findOrFail($studentid);
+        $student->update([
             'first_name' => request()->firstname,
             'last_name' => request()->lastname,
             'email' => request()->email,
