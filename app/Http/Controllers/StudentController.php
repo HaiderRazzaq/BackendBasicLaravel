@@ -41,7 +41,7 @@ class StudentController extends Controller
         return view('students.editstudent', compact('student'));}
 
     public function update($studentid){
-        $test=student::findOrFail($studentid)->update([
+        $student=student::findOrFail($studentid)->update([
             'first_name'=>request()->firstname,
             'last_name'=>request()->lastname,
             'email'=>request()->email,
@@ -50,10 +50,10 @@ class StudentController extends Controller
             'classroom'=>request()->classroom,
             'address'=>request()->address,
             'city'=>request()->city]);
-
-            if($test==true){
-
-                return ('its good');
+            if($student==true){
+                return back()->with('success','Student has been updated successfully!');
+            }else{
+                return back()->withErrors(['Server Error']);
             }
     }
 

@@ -5,9 +5,19 @@
 @endsection
 
 @section('editstudent')
+@if(session('success'))
+    <div class="alert mt-4 alert-success inputform">
+        {{ session('success') }}
+    </div>
+@endif
 
+@if(session('error'))
+    <div class="alert mt-4 alert-danger inputform">
+        {{ session('error') }}
+    </div>
+@endif
 
-<form class="row g-3 w-a inputform" method="post" action="{{route('students.update', $student->id)}}"> 
+<form class="row g-3 w-a inputform" method="post" action="{{route('students.update', $student->id)}}">
     @csrf
     @method('put')
     <div class="col-md-6 mb-3">
