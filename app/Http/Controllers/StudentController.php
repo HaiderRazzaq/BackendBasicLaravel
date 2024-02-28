@@ -28,8 +28,8 @@ class StudentController extends Controller
         $student->address = $studentsdata['address'];
         $student->city = $studentsdata['city'];
         $student->save();
-        dd($student);
-        return to_route('students.create');
+        return to_route('students.create')->with('success', 'Student added successfully!');
+
     }
     public function show($studentid)
     {
