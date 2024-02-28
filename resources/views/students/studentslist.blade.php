@@ -47,9 +47,14 @@
                                     rel="noopener noreferrer" class="btn btn-info btn-sm">
                                     Show
                                 </a>
-                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal">
-                                    Delete
-                                </button>
+                                <form action="{{route('student.destroy',$student->id)}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm" data-toggle="modal">
+                                        Delete
+                                    </button>
+                                </form>
+
                             </div>
                         </td>
                     </tr>
