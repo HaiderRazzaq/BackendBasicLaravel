@@ -3,8 +3,15 @@
 @section('title')
     Students list
 @endsection
-{{-- @dd($students) --}}
+
+
 @section('studentslist')
+    @if (session('success'))
+        <div class="alert alert-success mt-4 inputform">{{ session('success') }}</div>
+    @endif
+    @if (session('error'))
+        <div class="alert alert-danger mt-4 inputform">{{ session('error') }}</div>
+    @endif
     <div class="container mt-5">
         <h2>Students list</h2>
         <table class="table table-bordered table-hover">
@@ -47,7 +54,7 @@
                                     rel="noopener noreferrer" class="btn btn-info btn-sm">
                                     Show
                                 </a>
-                                <form action="{{route('student.destroy',$student->id)}}" method="post">
+                                <form action="{{ route('students.destroy', $student->id) }}" method="post">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm" data-toggle="modal">

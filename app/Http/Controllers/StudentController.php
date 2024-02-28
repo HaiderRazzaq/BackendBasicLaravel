@@ -60,4 +60,14 @@ class StudentController extends Controller
         }
     }
 
+    public function destroy($studentid)
+    {
+        $student = student::findOrFail($studentid)->delete();
+        if ($student) {
+            return back()->with('success', 'Student has been Deleted !');
+        } else {
+            return back()->withErrors('Could not delete the Student');
+        }
+    }
+
 }
