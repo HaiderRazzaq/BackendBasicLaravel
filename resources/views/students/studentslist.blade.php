@@ -47,12 +47,10 @@
                                     rel="noopener noreferrer" class="btn btn-info btn-sm">
                                     Show
                                 </a>
-                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                                    data-target="#deleteModal">
+                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal">
                                     Delete
                                 </button>
                             </div>
-
                         </td>
                     </tr>
                 @endforeach
