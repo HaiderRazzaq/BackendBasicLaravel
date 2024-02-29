@@ -63,10 +63,14 @@
             </tr>
         </tbody>
         <td colspan="2">
-            <a href="{{ route('students.edit', $singlestudent) }}" target="_blank" rel="noopener noreferrer"><button
+            <a href="{{ route('students.edit', $singlestudent->id) }}" target="_blank" rel="noopener noreferrer"><button
                     type="button" class="btn btn-primary btn-sm">Edit</button></a>
 
-            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+            <form action="{{ route('students.destroy', $singlestudent->id) }}" method="post">
+                @csrf
+                @method('Delete')
+                <button type="submit" name="submit" class="btn btn-danger btn-sm">Delete</button>
+            </form>
         </td>
     </table>
 @endsection

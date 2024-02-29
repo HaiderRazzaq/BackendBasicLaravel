@@ -33,7 +33,7 @@ class StudentController extends Controller
     }
     public function show($studentid)
     {
-        $student = student::find($studentid);
+        $student = student::findOrFail($studentid);
         return view('students.singlestudent', ['singlestudent' => $student]);}
 
     public function edit($studentid)
@@ -63,10 +63,10 @@ class StudentController extends Controller
     public function destroy($studentid)
     {
         $student = student::findOrFail($studentid)->delete();
-        if ($student) {
-            return back()->with('success', 'Student has been Deleted !');
-        } else {
-            return back()->withErrors('Could not delete the Student');
+        if($student){
+            return to_route('students.index')->with('success','Student has been deleted !');
+        }else{
+            return to_route('students.index')->withErrors(['Delete Failed !']);
         }
     }
 
