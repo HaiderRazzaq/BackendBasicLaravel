@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\department;
+
 class DepartmentController extends Controller
 {
     public function index()
@@ -12,9 +14,20 @@ class DepartmentController extends Controller
     {
         return view('departments.adddepartment');}
 
-    public function store(){
-        $addnewdepartments=request();
-        dd($addnewdepartments);
+    public function store()
+    {
+        $departments = request();
+        $departmentname = $departments->departmentname;
+        $departmentowner = $departments->departmentowner;
+
+        $newdep = department::create([
+            'department_name' => $departmentname,
+            'department_owner' => $departmentowner]);
+        if($newdep){
+            return to_route('departments.create')->with('success','Department added successfully ! ');
+        }else{
+            return to_route('departments.create')->withErrors(['Error while adding the department']);
+        }
     }
 
     public function show($departmentid)
