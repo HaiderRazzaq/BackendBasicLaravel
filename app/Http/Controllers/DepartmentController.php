@@ -8,7 +8,12 @@ class DepartmentController extends Controller
 {
     public function index()
     {
-        return view('departments.departmentlist');}
+
+        $departments = department::all();
+
+        return view('departments.departmentlist', ['departments' => $departments]);
+
+    }
 
     public function create()
     {
@@ -23,9 +28,9 @@ class DepartmentController extends Controller
         $newdep = department::create([
             'department_name' => $departmentname,
             'department_owner' => $departmentowner]);
-        if($newdep){
-            return to_route('departments.create')->with('success','Department added successfully ! ');
-        }else{
+        if ($newdep) {
+            return to_route('departments.create')->with('success', 'Department added successfully ! ');
+        } else {
             return to_route('departments.create')->withErrors(['Error while adding the department']);
         }
     }
