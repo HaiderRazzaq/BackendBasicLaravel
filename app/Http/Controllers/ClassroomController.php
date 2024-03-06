@@ -41,8 +41,15 @@ class ClassroomController extends Controller
     {$classroomid = classroom::FindOrFail($classid);
         $classname = request()->all();
         $classowner = request()->all();
-        
-
+        $classroomid->update([
+            'class_name' => $classname['classname'],
+            'class_owner' => $classowner['classowner'],
+        ]);
+        if ($classroomid) {
+            return back()->with('success', 'The Data Is Update Successfully!');
+        } else {
+            return back()->withErrors(["Sorry The Data Is Not Updated"]);
+        }
 
     }
 
