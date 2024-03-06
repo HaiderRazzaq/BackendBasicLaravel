@@ -59,3 +59,5 @@ Route::post('/departments', [DepartmentController::class, 'store'])->name('depar
 Route::get('/departments/{departmentid}', [DepartmentController::class, 'show'])->name('departments.show');
 
 Route::get('/departments/{departmentid}/edit', [DepartmentController::class, 'edit'])->name('departments.edit');
+
+Route::delete('/departments/{departmentid}', [DepartmentController::class, 'destroy'])->name('departments.destroy');
