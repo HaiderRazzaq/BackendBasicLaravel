@@ -27,11 +27,11 @@
                         <td id="updated">{{ $classroom->updated_at }}</td>
                         <td>
                             <div class="btn-group" role="group">
-                                <a href="{{ route('departments.edit', $classroom->id) }}" target="_blank"
+                                <a href="{{ route('classrooms.edit', $classroom->id) }}" target="_blank"
                                     class="btn btn-primary btn-sm">
                                     Edit
                                 </a>
-                                <a href="{{ route('departments.show', $classroom->id) }}" target="_blank"
+                                <a href="{{ route('classrooms.show', $classroom->id) }}" target="_blank"
                                     rel="noopener noreferrer" class="btn btn-info btn-sm">
                                     Show
                                 </a>

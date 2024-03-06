@@ -14,8 +14,7 @@ class ClassroomController extends Controller
 
     public function create()
     {
-        return view('classrooms.addclassroom');
-    }
+        return view('classrooms.addclassroom');}
 
     public function store()
     {
@@ -33,14 +32,12 @@ class ClassroomController extends Controller
         if ($newclass) {
             return to_route('classrooms.create')->with('success', 'Add new class Has been successfuly !');
         } else {
-            return to_route('classrooms.create')->withErrors(['Add new Class Was Faild !']);
-        };
-
-    }
+            return to_route('classrooms.create')->withErrors(['Add new Class Was Faild !']);};}
 
     public function show($classid)
     {
-        return view('classrooms.singleclassroom', compact('classid'));
+        $classroom = classroom::FindOrFail($classid);
+        return view('classrooms.singleclassroom', compact('classroom'));
 
     }
 
