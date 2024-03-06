@@ -2,26 +2,44 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\classroom;
+
 class ClassroomController extends Controller
 {
     public function index()
     {
         return view('classrooms.classrooms');
     }
+
     public function create()
     {
         return view('classrooms.addclassroom');
     }
 
-    public function store(){
-        $newclassroom= request()->all();
-        dd($newclassroom);
+    public function store()
+    {
+        //without validation
+        $classroom = request()->all();
+        $classname = $classroom['classname'];
+        $classowner = $classroom['classowner'];
+        //first way to make insert
+        // $newclass = new classroom;
+        // $newclass->class_name = $classname;
+        // $newclass->class_owner = $classowner;
+        // $newclass->save();
+
+
     }
+
+
     public function show($classid)
     {
         return view('classrooms.singleclassroom', compact('classid'));
+
     }
-    public function edit($classid) {
-        return view('classrooms.editclassroom', ['classid'=>$classid]);}
+
+    public function edit($classid)
+    {
+        return view('classrooms.editclassroom', ['classid' => $classid]);}
 
 }
