@@ -19,32 +19,35 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td id="className">Sample Class</td>
-                    <td id="owner">John Doe</td>
-                    <td id="created">John Doe</td>
-                    <td id="updated">John Doe</td>
-                    <td>
-                        <div class="btn-group" role="group">
-                            <a href="{{ route('departments.edit', 2) }}" target="_blank" class="btn btn-primary btn-sm">
-                                Edit
-                            </a>
-                            <a href="{{ route('departments.show', 2) }}" target="_blank" rel="noopener noreferrer"
-                                class="btn btn-info btn-sm">
-                                Show
-                            </a>
-                            <form action="{{ route('classrooms.destroy', 2) }}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm"
-                                    onclick="return confirm('This will Delete Item !!')">
-                                    Delete
-                                </button>
-                            </form>
+                @foreach ($classrooms as $classroom)
+                    <tr>
+                        <td id="className">{{ $classroom->class_name }}</td>
+                        <td id="owner">{{ $classroom->class_owner }}</td>
+                        <td id="created">{{ $classroom->created_at }}</td>
+                        <td id="updated">{{ $classroom->updated_at }}</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a href="{{ route('departments.edit', $classroom->id) }}" target="_blank"
+                                    class="btn btn-primary btn-sm">
+                                    Edit
+                                </a>
+                                <a href="{{ route('departments.show', $classroom->id) }}" target="_blank"
+                                    rel="noopener noreferrer" class="btn btn-info btn-sm">
+                                    Show
+                                </a>
+                                <form action="{{ route('classrooms.destroy', $classroom->id) }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm"
+                                        onclick="return confirm('This will Delete Item !!')">
+                                        Delete
+                                    </button>
+                                </form>
 
-                        </div>
-                    </td>
-                </tr>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
