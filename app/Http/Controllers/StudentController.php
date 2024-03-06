@@ -42,7 +42,7 @@ class StudentController extends Controller
         return view('students.editstudent', compact('student'));}
 
     public function update($studentid)
-    {
+    { 
         $student = student::findOrFail($studentid);
         $student->update([
             'first_name' => request()->firstname,

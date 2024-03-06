@@ -46,9 +46,17 @@ class DepartmentController extends Controller
 
     public function update($departmentid)
     {
-        //testing
-        $departmentupdate = department::FindOrFail($departmentid);
-        dd($departmentupdate);
+        $departmentname = request()->all();
+        $departmentowner = request()->all();
+        $department = department::FindOrFail($departmentid);
+        $department->department_name = $departmentname['departmentname'];
+        $department->department_owner = $departmentowner['departmentowner'];
+        if ($department->save()) {
+            return to_route('departments.index')->with('success', 'Department Has been successfuly updated !');
+        } else {
+            return to_route('departments.index')->withErrors(['Department has been Faild to update !']);
+        }
+
     }
 
     public function destroy($departmentid)
