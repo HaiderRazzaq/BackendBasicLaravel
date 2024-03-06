@@ -45,4 +45,13 @@ class ClassroomController extends Controller
     {
         return view('classrooms.editclassroom', ['classid' => $classid]);}
 
+    public function destroy($classid)
+    {
+        $classroom = classroom::FindOrFail($classid);
+        if ($classroom->delete()) {
+            return to_route('classrooms.index')->with('success', 'Class Item Has been Deleted  Successfully!');
+        } else {
+            return to_route('classrooms.index')->withErrors(['Class Item Has been  failed To delete!']);
+        }
+    }
 }
