@@ -44,10 +44,11 @@ class DepartmentController extends Controller
 
     public function destroy($departmentid)
     {
-        // $deletedepartment = department::where('id', $departmentid)->delete();
-        $deletedepartment = department::where('id', $departmentid);
-        if ($departmentid == null) {
-            return to_route('departments.index')->with('error', 'Department Not Found !');
+        // $deletedepartment = department::where('id', $departmentid)->delete(); //not suitable for delete
+        $deletedepartment = department::findOrFail($departmentid);
+        // dd($deletedepartment);
+        if ($deletedepartment == null) {
+            return to_route('departments.index')->withErrors(['Department Not Found !']);
         } else {
             $deletedepartment->delete();
             return to_route('departments.index')->with('success', 'Department item has been Deleted !');

@@ -5,6 +5,17 @@
 @endsection
 
 @section('departmentslist')
+    @if (session('success'))
+        <div class="alert alert-success mt-4 inputform">
+            {{ session('success') }}
+        </div>
+    @endif
+    @if (session('error'))
+        <div class="alert alert-danger mt-4 inputform">
+            {{ session('error') }}
+        </div>
+    @endif
+
     <div class="container mt-5">
         <h2>Departments List</h2>
         <table class="table table-bordered table-hover">
