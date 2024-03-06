@@ -38,7 +38,11 @@ class ClassroomController extends Controller
         return view('classrooms.editclassroom', ['classroom' => $classroom]);}
 
     public function update($classid)
-    {
+    {$classroomid = classroom::FindOrFail($classid);
+        $classname = request()->all();
+        $classowner = request()->all();
+        
+
 
     }
 
