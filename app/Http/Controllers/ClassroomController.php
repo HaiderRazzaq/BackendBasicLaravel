@@ -29,6 +29,11 @@ class ClassroomController extends Controller
         // $newclass->save();
         //sec way to make insert
         $newclass = classroom::create(['class_name' => $classname, 'class_owner' => $classowner]);
+        if ($newclass) {
+            return to_route('classrooms.create')->with('success', 'Add new class Has been successfuly !');
+        } else {
+            return to_route('classrooms.create')->withErrors(['Add new Class Was Faild !']);
+        };
 
     }
 
