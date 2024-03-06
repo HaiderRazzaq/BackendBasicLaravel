@@ -8,7 +8,8 @@ class ClassroomController extends Controller
 {
     public function index()
     {
-        return view('classrooms.classrooms');
+        $classrooms = classroom::all();
+        return view('classrooms.classrooms', compact('classrooms'));
     }
 
     public function create()
