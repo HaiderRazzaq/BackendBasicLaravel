@@ -41,4 +41,17 @@ class DepartmentController extends Controller
     public function edit($departmentid)
     {
         return view('departments.editdepartment', compact('departmentid'));}
+
+    public function destroy($departmentid)
+    {
+        // $deletedepartment = department::where('id', $departmentid)->delete();
+        $deletedepartment = department::where('id', $departmentid);
+        if ($departmentid == null) {
+            return to_route('departments.index')->with('error', 'Department Not Found !');
+        } else {
+            $deletedepartment->delete();
+            return to_route('departments.index')->with('success', 'Department item has been Deleted !');
+        }
+    }
+
 }
