@@ -4,7 +4,18 @@
     Add new classroom
 @endsection
 @section('addclassroom')
-    <form class="row g-3 w-a inputform" method="POST" action="{{route('classrooms.store')}}">
+
+@if (session('success'))
+<div class="alert alert-success mt-4 inputform">{{ session('success') }}
+</div>
+@endif
+@if (session('Errors'))
+<div class="alert alert-danger mt-4 inputform">
+    {{ session('Errors') }}
+</div>
+@endif
+
+    <form class="row g-3 w-a inputform" method="POST" action="{{ route('classrooms.store') }}">
         @csrf
         <div class="col-md-6 mb-3">
             <label for="inputclass" class="form-label">Class Name</label>
