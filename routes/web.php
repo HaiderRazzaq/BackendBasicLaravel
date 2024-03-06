@@ -37,6 +37,9 @@ Route::get('/classrooms/{class}', [ClassroomController::class, 'show'])->name('c
 
 Route::get('/classrooms/{classid}/edit', [ClassroomController::class, 'edit'])->name('classrooms.edit');
 
+
+
+
 Route::get('/students', [StudentController::class, 'index'])->name('students.index');
 
 Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
@@ -48,7 +51,9 @@ Route::get('/students/{studentid}', [StudentController::class, 'show'])->name('s
 Route::get('/students/{studentid}/edit', [StudentController::class, 'edit'])->name('students.edit');
 
 Route::put('/students/{studentid}', [StudentController::class, 'update'])->name('students.update');
+
 Route::DELETE('/student/{studentid}', [StudentController::class, 'destroy'])->name('students.destroy');
+
 
 Route::get('/departments', [DepartmentController::class, 'index'])->name('departments.index');
 
@@ -60,4 +65,6 @@ Route::get('/departments/{departmentid}', [DepartmentController::class, 'show'])
 
 Route::get('/departments/{departmentid}/edit', [DepartmentController::class, 'edit'])->name('departments.edit');
 
-Route::delete('/departments/{departmentid}', [DepartmentController::class, 'destroy'])->name('departments.destroy');
+Route::put('/departments/{departmentid}',[DepartmentController::class,'update'])->name('departments.update');
+
+Route::DELETE('/departments/{departmentid}', [DepartmentController::class, 'destroy'])->name('departments.destroy');
