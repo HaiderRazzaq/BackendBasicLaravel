@@ -19,20 +19,28 @@
 
                 @foreach ($departments as $department)
                     <tr>
-                        <td id="departmentName">{{$department->department_name}}</td>
-                        <td id="owner">{{$department->department_owner}}</td>
+                        <td id="departmentName">{{ $department->department_name }}</td>
+                        <td id="owner">{{ $department->department_owner }}</td>
                         <td>
-                            <a href="{{ route('departments.edit', $department->id) }}" target="_blank"><button type="button"
-                                    class="btn btn-primary btn-sm">Edit</button></a>
-
-                            <a href="{{ route('departments.show', $department->id) }}" target="_blank" rel="noopener noreferrer"><button
-                                    type="button" class="btn btn-info btn-sm">Show</button></a>
-                                {{-- <form action="" method="post">
+                            <div class="btn-group" role="group">
+                                <a href="{{ route('departments.edit', $department->id) }}" target="_blank"
+                                    class="btn btn-primary btn-sm">
+                                    Edit
+                                </a>
+                                <a href="{{ route('departments.show', $department->id) }}" target="_blank"
+                                    rel="noopener noreferrer" class="btn btn-info btn-sm">
+                                    Show
+                                </a>
+                                <form action="{{ route('departments.destroy', $department->id) }}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="button" class="btn btn-danger btn-sm">Delete</button>
-                                </form> --}}
+                                    <button type="submit" class="btn btn-danger btn-sm"
+                                        onclick="return confirm('This will Delete Item !!')">
+                                        Delete
+                                    </button>
+                                </form>
 
+                            </div>
                         </td>
                     </tr>
                 @endforeach
