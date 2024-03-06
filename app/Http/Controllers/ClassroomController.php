@@ -7,18 +7,14 @@ use App\Models\classroom;
 class ClassroomController extends Controller
 {
     public function index()
-    {
-        $classrooms = classroom::all();
-        return view('classrooms.classrooms', compact('classrooms'));
-    }
+    {$classrooms = classroom::all();
+        return view('classrooms.classrooms', compact('classrooms'));}
 
     public function create()
-    {
-        return view('classrooms.addclassroom');}
+    {return view('classrooms.addclassroom');}
 
     public function store()
-    {
-        //without validation
+    { //without validation
         $classroom = request()->all();
         $classname = $classroom['classname'];
         $classowner = $classroom['classowner'];
@@ -31,27 +27,25 @@ class ClassroomController extends Controller
         $newclass = classroom::create(['class_name' => $classname, 'class_owner' => $classowner]);
         if ($newclass) {
             return to_route('classrooms.create')->with('success', 'Add new class Has been successfuly !');
-        } else {
-            return to_route('classrooms.create')->withErrors(['Add new Class Was Faild !']);};}
+        } else {return to_route('classrooms.create')->withErrors(['Add new Class Was Faild !']);};}
 
     public function show($classid)
-    {
-        $classroom = classroom::FindOrFail($classid);
-        return view('classrooms.singleclassroom', compact('classroom'));
-
-    }
+    {$classroom = classroom::FindOrFail($classid);
+        return view('classrooms.singleclassroom', compact('classroom'));}
 
     public function edit($classid)
+    {$classroom = classroom::FindOrFail($classid);
+        return view('classrooms.editclassroom', ['classroom' => $classroom]);}
+
+    public function update($classid)
     {
-        return view('classrooms.editclassroom', ['classid' => $classid]);}
+
+    }
 
     public function destroy($classid)
-    {
-        $classroom = classroom::FindOrFail($classid);
+    {$classroom = classroom::FindOrFail($classid);
         if ($classroom->delete()) {
             return to_route('classrooms.index')->with('success', 'Class Item Has been Deleted  Successfully!');
-        } else {
-            return to_route('classrooms.index')->withErrors(['Class Item Has been  failed To delete!']);
-        }
-    }
+        } else {return to_route('classrooms.index')->withErrors(['Class Item Has been  failed To delete!']);}}
+
 }
