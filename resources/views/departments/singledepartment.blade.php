@@ -22,9 +22,17 @@
             <tr>
                 <th scope="row">Department Owner</th>
                 <td colspan="2">{{ $department->department_owner }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Created At</th>
+                <td colspan="2">{{ $department->created_at }}</td>
 
             </tr>
+            <tr>
+                <th scope="row">Updated At</th>
+                <td colspan="2">{{ $department->updated_at }}</td>
 
+            </tr>
         </tbody>
         <td colspan="2">
             <div class="btn-group" role="group">
