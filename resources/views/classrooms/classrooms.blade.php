@@ -7,12 +7,14 @@
 
 @section('classroomslist')
     <div class="container mt-5">
-        <h2>Form Data Table</h2>
+        <h2>ClassRooms List</h2>
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
                     <th scope="col">Class Name</th>
                     <th scope="col">Owner</th>
+                    <th scope="col">Created At</th>
+                    <th scope="col">Updated At</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
@@ -20,14 +22,27 @@
                 <tr>
                     <td id="className">Sample Class</td>
                     <td id="owner">John Doe</td>
+                    <td id="created">John Doe</td>
+                    <td id="updated">John Doe</td>
                     <td>
-                        {{-- <button type="button" class="btn btn-primary btn-sm">Edit</button> --}}
-                        <a href="{{ route('classrooms.edit', 3) }}" target="_blank"><button type="button"
-                                class="btn btn-primary btn-sm">Edit</button></a>
-                        <a href="{{ route('classrooms.show', 3) }}" target="_blank" rel="noopener noreferrer"><button
-                                type="button" class="btn btn-info btn-sm">Show</button></a>
+                        <div class="btn-group" role="group">
+                            <a href="{{ route('departments.edit', 2) }}" target="_blank" class="btn btn-primary btn-sm">
+                                Edit
+                            </a>
+                            <a href="{{ route('departments.show', 2) }}" target="_blank" rel="noopener noreferrer"
+                                class="btn btn-info btn-sm">
+                                Show
+                            </a>
+                            <form action="{{ route('classrooms.destroy', 2) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm"
+                                    onclick="return confirm('This will Delete Item !!')">
+                                    Delete
+                                </button>
+                            </form>
 
-                        <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                        </div>
                     </td>
                 </tr>
             </tbody>

@@ -37,7 +37,7 @@ Route::get('/classrooms/{class}', [ClassroomController::class, 'show'])->name('c
 
 Route::get('/classrooms/{classid}/edit', [ClassroomController::class, 'edit'])->name('classrooms.edit');
 
-
+Route::DELETE('/classrooms/{classid}',[ClassroomController::class,'destroy'])->name('classrooms.destroy');
 
 
 Route::get('/students', [StudentController::class, 'index'])->name('students.index');

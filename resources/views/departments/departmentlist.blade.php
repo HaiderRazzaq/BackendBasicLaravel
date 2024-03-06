@@ -34,8 +34,8 @@
                     <tr>
                         <td id="departmentName">{{ $department->department_name }}</td>
                         <td id="owner">{{ $department->department_owner }}</td>
-                        <td id="owner">{{ $department->created_at->format('Y-M-d') }}</td>
-                        <td id="owner">{{ $department->updated_at }}</td>
+                        <td id="created">{{ $department->created_at->format('Y-M-d') }}</td>
+                        <td id="updated">{{ $department->updated_at }}</td>
                         <td>
                             <div class="btn-group" role="group">
                                 <a href="{{ route('departments.edit', $department->id) }}" target="_blank"
