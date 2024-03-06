@@ -31,8 +31,7 @@ class DepartmentController extends Controller
         if ($newdep) {
             return to_route('departments.create')->with('success', 'Department added successfully ! ');
         } else {
-            return to_route('departments.create')->withErrors(['Error while adding the department']);
-        }
+            return to_route('departments.create')->withErrors(['Error while adding the department']);}
     }
 
     public function show($departmentid)
@@ -40,11 +39,12 @@ class DepartmentController extends Controller
         $department = department::FindOrFail($departmentid);
         return view('departments.singledepartment', ['department' => $department]);}
 
-
-
     public function edit($departmentid)
     {
-        return view('departments.editdepartment', compact('departmentid'));}
+        $department = department::FindOrFail($departmentid);
+        return view('departments.editdepartment', compact('department'));
+
+    }
 
     public function destroy($departmentid)
     {
@@ -55,8 +55,7 @@ class DepartmentController extends Controller
             return to_route('departments.index')->withErrors(['Department Not Found !']);
         } else {
             $deletedepartment->delete();
-            return to_route('departments.index')->with('success', 'Department item has been Deleted !');
-        }
+            return to_route('departments.index')->with('success', 'Department item has been Deleted !');}
     }
 
 }
