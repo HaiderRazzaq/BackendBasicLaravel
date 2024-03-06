@@ -1,35 +1,43 @@
 @extends('layout.app')
 @section('title')
-Show single department information
+    Show single department information
 @endsection
 
 
 
 @section('singledeaprtment')
+    <table class="table table-bordered table-hover mt-5 inputform">
 
-<table class="table table-bordered table-hover mt-5 inputform">
+        <tbody class="table-group-divider">
+            <tr>
+                <th scope="row">Department Id</th>
+                <td>{{ $department->id }}</td>
 
-    <tbody class="table-group-divider">
-        <tr>
-            <th scope="row">Department Id</th>
-            <td>212</td>
+            </tr>
+            <tr>
+                <th scope="row">Department Name</th>
+                <td>{{ $department->department_name }}</td>
 
-        </tr>
-        <tr>
-            <th scope="row">Department Name</th>
-            <td>Jacob</td>
+            </tr>
+            <tr>
+                <th scope="row">Department Owner</th>
+                <td colspan="2">{{ $department->department_owner }}</td>
 
-        </tr>
-        <tr>
-            <th scope="row">Department Owner</th>
-            <td colspan="2">Larry the Bird</td>
+            </tr>
 
-        </tr>
+        </tbody>
+        <td colspan="2">
+            <a href="{{ route('departments.edit', $department->id) }}" target="_blank" rel="noopener noreferrer"><button
+                    type="button" class="btn btn-primary btn-sm">Edit</button></a>
 
-    </tbody>
-<td colspan="2">
-    <button type="button" class="btn btn-primary btn-sm">Edit</button>
-    <button type="button" class="btn btn-danger btn-sm">Delete</button>
-</td>
-</table>
+            <form action="{{ route('departments.destroy', $department->id) }}" method="post">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger btn-sm"
+                    onclick="return confirm('This will delete Item !')">Delete</button>
+            </form>
+
+
+        </td>
+    </table>
 @endsection

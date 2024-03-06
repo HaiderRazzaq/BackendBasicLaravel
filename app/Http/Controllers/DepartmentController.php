@@ -37,7 +37,11 @@ class DepartmentController extends Controller
 
     public function show($departmentid)
     {
-        return view('departments.singledepartment', ['departmentid' => $departmentid]);}
+        $department = department::FindOrFail($departmentid);
+        return view('departments.singledepartment', ['department' => $department]);}
+
+
+
     public function edit($departmentid)
     {
         return view('departments.editdepartment', compact('departmentid'));}
