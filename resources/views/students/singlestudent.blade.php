@@ -63,14 +63,20 @@
             </tr>
         </tbody>
         <td colspan="2">
-            <a href="{{ route('students.edit', $singlestudent->id) }}" target="_blank" rel="noopener noreferrer"><button
-                    type="button" class="btn btn-primary btn-sm">Edit</button></a>
+            <div class="btn-group" role="group">
+                <a href="{{ route('students.edit', $singlestudent->id) }}" target="_blank" class="btn btn-primary btn-sm">
+                    Edit
+                </a>
+                <form action="{{ route('students.destroy', $singlestudent->id) }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger btn-sm"
+                        onclick="return confirm('This will Delete Item !!')">
+                        Delete
+                    </button>
+                </form>
 
-            <form action="{{ route('students.destroy', $singlestudent->id) }}" method="post">
-                @csrf
-                @method('Delete')
-                <button type="submit" name="submit" class="btn btn-danger btn-sm">Delete</button>
-            </form>
+            </div>
         </td>
     </table>
 @endsection
