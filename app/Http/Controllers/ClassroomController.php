@@ -27,10 +27,10 @@ class ClassroomController extends Controller
         // $newclass->class_name = $classname;
         // $newclass->class_owner = $classowner;
         // $newclass->save();
-
+        //sec way to make insert
+        $newclass = classroom::create(['class_name' => $classname, 'class_owner' => $classowner]);
 
     }
-
 
     public function show($classid)
     {
