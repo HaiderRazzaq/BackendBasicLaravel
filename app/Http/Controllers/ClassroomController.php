@@ -14,8 +14,8 @@ class ClassroomController extends Controller
     {return view('classrooms.addclassroom');}
 
     public function store()
-    { //without validation
-        $classroom = request()->all();
+    {
+        $classroom = request()->validate(['classname' => 'required', 'classowner' => 'required']);
         $classname = $classroom['classname'];
         $classowner = $classroom['classowner'];
         //first way to make insert
