@@ -21,9 +21,9 @@ class DepartmentController extends Controller
 
     public function store()
     {
-        $departments = request();
-        $departmentname = $departments->departmentname;
-        $departmentowner = $departments->departmentowner;
+        $departments = request()->validate(['departmentname' => 'required', 'departmentowner' => 'required']);
+        $departmentname = $departments['departmentname'];
+        $departmentowner = $departments['departmentowner'];
 
         $newdep = department::create([
             'department_name' => $departmentname,
@@ -46,15 +46,17 @@ class DepartmentController extends Controller
 
     public function update($departmentid)
     {
-        $departmentname = request()->all();
-        $departmentowner = request()->all();
+        $departments = request()->validate(['departmentname'=>'required','departmentowner'=>'required']);
+
         $department = department::FindOrFail($departmentid);
-        $department->department_name = $departmentname['departmentname'];
-        $department->department_owner = $departmentowner['departmentowner'];
+
+        $department->department_name = $departments['departmentname'];
+        $department->department_owner = $departments['departmentowner'];
+
         if ($department->save()) {
-            return to_route('departments.index')->with('success', 'Department Has been successfuly updated !');
+            return back()->with('success', 'Department Has been successfuly updated !');
         } else {
-            return to_route('departments.index')->withErrors(['Department has been Faild to update !']);
+            return back()->withErrors(['Department has been Faild to update !']);
         }
 
     }

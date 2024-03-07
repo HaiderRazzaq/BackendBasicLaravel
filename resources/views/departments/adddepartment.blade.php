@@ -16,6 +16,17 @@
         </div>
     @endif
 
+{{-- display validation error --}}
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
     <form class="row g-3 w-a inputform" method="post" action="{{ route('departments.store') }}">
         @csrf
         <div class="col-md-6 mb-3">
