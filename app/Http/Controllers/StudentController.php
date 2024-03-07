@@ -21,7 +21,7 @@ class StudentController extends Controller
             'firstname' => 'required',
             'lastname' => 'required',
             'email' => ['required', 'email'],
-            'phone' => 'numeric',
+            'phone' => ['required', 'numeric'],
             'departmentname' => 'required',
             'classroom' => 'required',
             'address' => 'required',
@@ -53,15 +53,26 @@ class StudentController extends Controller
     public function update($studentid)
     {
         $student = student::findOrFail($studentid);
+        $studentsdata = request()->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => ['email', 'required'],
+            'phone' => ['required', 'numeric'],
+            'departmentname' => 'required',
+            'classroom' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+        ]);
+
         $student->update([
-            'first_name' => request()->firstname,
-            'last_name' => request()->lastname,
-            'email' => request()->email,
-            'phone' => request()->phone,
-            'department' => request()->departmentname,
-            'classroom' => request()->classroom,
-            'address' => request()->address,
-            'city' => request()->city]);
+            'first_name' => $studentsdata['firstname'],
+            'last_name' => $studentsdata['lastname'],
+            'email' => $studentsdata['email'],
+            'phone' => $studentsdata['phone'],
+            'department' => $studentsdata['departmentname'],
+            'classroom' => $studentsdata['classroom'],
+            'address' => $studentsdata['address'],
+            'city' => $studentsdata['city']]);
         if ($student == true) {
             return back()->with('success', 'Student has been updated successfully!');
         } else {
