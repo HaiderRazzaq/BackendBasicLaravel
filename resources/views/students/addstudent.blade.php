@@ -11,6 +11,15 @@
         <div class="alert alert-success mt-4 inputform">{{ session('success') }}</div>
     @endif
 
+    @if ($errors->any())
+        <div class="alert alert-danger mt-4 inputform">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form class="row g-3 w-a inputform" method="post" action="{{ route('students.store') }}">
         @csrf
         <div class="col-md-6 mb-3">

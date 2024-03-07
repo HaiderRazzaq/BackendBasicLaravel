@@ -17,7 +17,16 @@ class StudentController extends Controller
 
     public function store()
     {
-        $studentsdata = request()->all();
+        $studentsdata = request()->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => ['required', 'email'],
+            'phone' => 'numeric',
+            'departmentname' => 'required',
+            'classroom' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+        ]);
         $student = new student;
         $student->first_name = $studentsdata['firstname'];
         $student->last_name = $studentsdata['lastname'];
@@ -42,7 +51,7 @@ class StudentController extends Controller
         return view('students.editstudent', compact('student'));}
 
     public function update($studentid)
-    { 
+    {
         $student = student::findOrFail($studentid);
         $student->update([
             'first_name' => request()->firstname,
@@ -63,9 +72,9 @@ class StudentController extends Controller
     public function destroy($studentid)
     {
         $student = student::findOrFail($studentid)->delete();
-        if($student){
-            return to_route('students.index')->with('success','Student has been deleted !');
-        }else{
+        if ($student) {
+            return to_route('students.index')->with('success', 'Student has been deleted !');
+        } else {
             return to_route('students.index')->withErrors(['Delete Failed !']);
         }
     }
