@@ -7,12 +7,25 @@
 @endsection
 
 @section('editclassroom')
+{{-- display edit error --}}
     @if (session('success'))
         <div class="alert alert-success mt-4 inputform">{{ session('success') }}</div>
     @endif
     @if (session('error'))
         <div class="alert alert-danger mt-4 inputform">{{ session('error') }}</div>
     @endif
+
+{{-- display Validation error --}}
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <form class="row g-3 w-a inputform" method="POST" action="{{ route('classrooms.update', $classroom->id) }}">
         @csrf
         @method('PUT')

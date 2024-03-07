@@ -39,11 +39,12 @@ class ClassroomController extends Controller
 
     public function update($classid)
     {$classroomid = classroom::FindOrFail($classid);
-        $classname = request()->all();
-        $classowner = request()->all();
+
+        $class = request()->validate(['classname' => 'required', 'classowner' => 'required']);
+
         $classroomid->update([
-            'class_name' => $classname['classname'],
-            'class_owner' => $classowner['classowner'],
+            'class_name' => $class['classname'],
+            'class_owner' => $class['classowner'],
         ]);
         if ($classroomid) {
             return back()->with('success', 'The Data Is Update Successfully!');
