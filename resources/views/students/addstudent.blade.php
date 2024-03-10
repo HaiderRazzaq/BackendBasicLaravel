@@ -20,38 +20,47 @@
             </ul>
         </div>
     @endif
+
     <form class="row g-3 w-a inputform" method="post" action="{{ route('students.store') }}">
         @csrf
         <div class="col-md-6 mb-3">
             <label for="inputFirstName" class="form-label">First Name</label>
-            <input type="text" value="{{old('firstname')}}" autofocus class="form-control" name="firstname" id="inputFirstName" required>
+            <input type="text" value="{{ old('firstname') }}" autofocus class="form-control" name="firstname"
+                id="inputFirstName" required>
         </div>
         <div class="col-md-6 mb-3">
             <label for="inputLastName" class="form-label">Last Name</label>
-            <input type="text" value="{{old('lastname')}}" class="form-control" name="lastname" id="inputLastName" required>
+            <input type="text" value="{{ old('lastname') }}" class="form-control" name="lastname" id="inputLastName"
+                required>
         </div>
         <div class="col-md-6 mb-3">
             <label for="inputEmail" class="form-label">Email</label>
-            <input type="email" value="{{old('email')}}" class="form-control" name="email" id="inputEmail" required>
+            <input type="email" value="{{ old('email') }}" class="form-control" name="email" id="inputEmail" required>
         </div>
         <div class="col-md-6 mb-3">
             <label for="inputPhone" class="form-label">Phone</label>
-            <input type="tel" value="{{old('phone')}}" class="form-control" name="phone" id="inputPhone" required>
+            <input type="tel" value="{{ old('phone') }}" class="form-control" name="phone" id="inputPhone" required>
         </div>
         <div class="col-md-6 mb-3">
             <label for="inputDepartment" class="form-label">Department</label>
             <select class="form-select" name="departmentname" id="inputDepartment" required>
                 <option selected>Select Department...</option>
-                <option value="department1">Department 1</option>
-                <option value="department2">Department 2</option>
+                @foreach ($departments as $department)
+                    <option value="{{ $department->id }}">{{ $department->department_name }}</option>
+                @endforeach
+
             </select>
         </div>
         <div class="col-md-6 mb-3">
             <label for="inputClassroom" class="form-label">Classroom</label>
             <select class="form-select" name="classroom" id="inputClassroom" required>
                 <option selected>Select Classroom...</option>
-                <option value="classroom1">Classroom 1</option>
-                <option value="classroom2">Classroom 2</option>
+                @foreach ($classrooms as $classroom)
+
+                <option value="{{$classroom->id}}">{{$classroom->class_name}}</option>
+
+                @endforeach
+
             </select>
         </div>
 

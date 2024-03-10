@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\classroom;
+use App\Models\department;
 use App\Models\student;
 
 class StudentController extends Controller
@@ -13,7 +15,11 @@ class StudentController extends Controller
 
     public function create()
     {
-        return view('students.addstudent');}
+        $classrooms = classroom::all();
+        $departments = department::all();
+        return view('students.addstudent', compact('classrooms', 'departments'));
+
+    }
 
     public function store()
     {
