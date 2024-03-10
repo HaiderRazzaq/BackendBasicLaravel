@@ -54,18 +54,19 @@
             <label for="inputDepartment" class="form-label">Edit Department</label>
             <select class="form-select" name="departmentname" id="inputDepartment" required>
                 <option selected>Select Department...</option>
-                <option value="department1">Department 1</option>
-                <option value="department2">Department 2</option>
-                <!-- Add more options as needed -->
+                @foreach ($departments as $department)
+                    <option value="{{$department->id}}">{{$department->department_name}}</option>
+                @endforeach
+
             </select>
         </div>
         <div class="col-md-6 mb-3">
             <label for="inputClassroom" class="form-label">Edit Classroom</label>
             <select class="form-select" name="classroom" id="inputClassroom" required>
                 <option selected>Select Classroom...</option>
-                <option value="classroom1">Classroom 1</option>
-                <option value="classroom2">Classroom 2</option>
-                <!-- Add more options as needed -->
+                @foreach ($classrooms as $classroom)
+                    <option value="{{$classroom->id}}">{{$classroom->class_name}}</option>
+                @endforeach
             </select>
         </div>
 

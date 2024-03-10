@@ -53,8 +53,10 @@ class StudentController extends Controller
 
     public function edit($studentid)
     {
+        $departments=department::all();
+        $classrooms=classroom::all();
         $student = student::findOrfail($studentid);
-        return view('students.editstudent', compact('student'));}
+        return view('students.editstudent', compact('student','departments','classrooms'));}
 
     public function update($studentid)
     {
