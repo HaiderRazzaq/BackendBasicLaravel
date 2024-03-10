@@ -28,8 +28,8 @@ class StudentController extends Controller
             'lastname' => 'required',
             'email' => ['required', 'email'],
             'phone' => ['required', 'numeric'],
-            'departmentname' => 'required',
-            'classroom' => 'required',
+            'departmentname' => ['required','exists:departments,id'],
+            'classroom' => ['required','exists:classrooms,id'],
             'address' => 'required',
             'city' => 'required',
         ]);
@@ -66,8 +66,8 @@ class StudentController extends Controller
             'lastname' => 'required',
             'email' => ['email', 'required'],
             'phone' => ['required', 'numeric'],
-            'departmentname' => 'required',
-            'classroom' => 'required',
+            'departmentname' => ['required','exists:departments,id'],
+            'classroom' => ['required','exists:classrooms,id'],
             'address' => 'required',
             'city' => 'required',
         ]);
