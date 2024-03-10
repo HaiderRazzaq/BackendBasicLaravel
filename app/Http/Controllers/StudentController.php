@@ -18,7 +18,6 @@ class StudentController extends Controller
         $classrooms = classroom::all();
         $departments = department::all();
         return view('students.addstudent', compact('classrooms', 'departments'));
-
     }
 
     public function store()

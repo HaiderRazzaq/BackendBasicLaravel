@@ -55,7 +55,7 @@
             <select class="form-select" name="departmentname" id="inputDepartment" required>
                 <option>Select Department...</option>
                 @foreach ($departments as $department)
-                    <option @if ($department->id == $student->department) selected @endif value="{{ $department->id }}">
+                    <option @selected($department->id == $student->department) value="{{ $department->id }}">
                         {{ $department->department_name }}</option>
                 @endforeach
 
@@ -66,7 +66,7 @@
             <select class="form-select" name="classroom" id="inputClassroom" required>
                 <option>Select Classroom...</option>
                 @foreach ($classrooms as $classroom)
-                    <option @if ($classroom->id == $student->classroom) selected @endif value="{{ $classroom->id }}">
+                    <option @selected($classroom->id == $student->classroom) value="{{ $classroom->id }}">
                         {{ $classroom->class_name }}</option>
                 @endforeach
             </select>
