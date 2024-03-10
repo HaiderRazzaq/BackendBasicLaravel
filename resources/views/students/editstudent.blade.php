@@ -53,9 +53,10 @@
         <div class="col-md-6 mb-3">
             <label for="inputDepartment" class="form-label">Edit Department</label>
             <select class="form-select" name="departmentname" id="inputDepartment" required>
-                <option selected>Select Department...</option>
+                <option>Select Department...</option>
                 @foreach ($departments as $department)
-                    <option value="{{$department->id}}">{{$department->department_name}}</option>
+                    <option @if ($department->id == $student->department) selected @endif value="{{ $department->id }}">
+                        {{ $department->department_name }}</option>
                 @endforeach
 
             </select>
@@ -63,9 +64,10 @@
         <div class="col-md-6 mb-3">
             <label for="inputClassroom" class="form-label">Edit Classroom</label>
             <select class="form-select" name="classroom" id="inputClassroom" required>
-                <option selected>Select Classroom...</option>
+                <option>Select Classroom...</option>
                 @foreach ($classrooms as $classroom)
-                    <option value="{{$classroom->id}}">{{$classroom->class_name}}</option>
+                    <option @if ($classroom->id == $student->classroom) selected @endif value="{{ $classroom->id }}">
+                        {{ $classroom->class_name }}</option>
                 @endforeach
             </select>
         </div>
