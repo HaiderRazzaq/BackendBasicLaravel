@@ -24,19 +24,19 @@
         @csrf
         <div class="col-md-6 mb-3">
             <label for="inputFirstName" class="form-label">First Name</label>
-            <input type="text" autofocus class="form-control" name="firstname" id="inputFirstName" required>
+            <input type="text" value="{{old('firstname')}}" autofocus class="form-control" name="firstname" id="inputFirstName" required>
         </div>
         <div class="col-md-6 mb-3">
             <label for="inputLastName" class="form-label">Last Name</label>
-            <input type="text" class="form-control" name="lastname" id="inputLastName" required>
+            <input type="text" value="{{old('lastname')}}" class="form-control" name="lastname" id="inputLastName" required>
         </div>
         <div class="col-md-6 mb-3">
             <label for="inputEmail" class="form-label">Email</label>
-            <input type="email" class="form-control" name="email" id="inputEmail" required>
+            <input type="email" value="{{old('email')}}" class="form-control" name="email" id="inputEmail" required>
         </div>
         <div class="col-md-6 mb-3">
             <label for="inputPhone" class="form-label">Phone</label>
-            <input type="tel" class="form-control" name="phone" id="inputPhone" required>
+            <input type="tel" value="{{old('phone')}}" class="form-control" name="phone" id="inputPhone" required>
         </div>
         <div class="col-md-6 mb-3">
             <label for="inputDepartment" class="form-label">Department</label>
