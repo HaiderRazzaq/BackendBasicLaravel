@@ -1,13 +1,13 @@
-@extends('layout.app')
-
-
-
-@section('title')
+{{-- @extends('layout.app') --}}
+{{-- @section('title')
     Edit classroom
-@endsection
+@endsection --}}
 
-@section('editclassroom')
-{{-- display edit error --}}
+{{-- @section('editclassroom') --}}
+<x-layout>
+
+    <x-page-title text='Edit classroom'></x-page-title>
+    {{-- display edit error --}}
     @if (session('success'))
         <div class="alert alert-success mt-4 inputform">{{ session('success') }}</div>
     @endif
@@ -15,7 +15,7 @@
         <div class="alert alert-danger mt-4 inputform">{{ session('error') }}</div>
     @endif
 
-{{-- display Validation error --}}
+    {{-- display Validation error --}}
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -31,8 +31,8 @@
         @method('PUT')
         <div class="col-md-6 mb-3">
             <label for="inputclass" class="form-label">Edit Class Name</label>
-            <input type="text" class="form-control" value="{{ $classroom->class_name }}" name="classname" id="inputclass"
-                required>
+            <input type="text" class="form-control" value="{{ $classroom->class_name }}" name="classname"
+                id="inputclass" required>
         </div>
         <div class="col-md-6 mb-3">
             <label for="inputOwner" class="form-label">Edit Owner</label>
@@ -43,4 +43,6 @@
             <button type="submit" value="submit" class="btn btn-primary">update</button>
         </div>
     </form>
-@endsection
+    {{-- @endsection --}}
+
+</x-layout>

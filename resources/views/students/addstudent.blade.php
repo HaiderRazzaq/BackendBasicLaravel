@@ -1,12 +1,14 @@
-@extends('layout.app')
+{{-- @extends('layout.app') --}}
 
 
-@section('title')
+{{-- @section('title')
     Add new student
-@endsection
+@endsection --}}
+<x-layout>
 
+    <x-page-title text='Add new student'></x-page-title>
 
-@section('addstudent')
+    {{-- @section('addstudent') --}}
     @if (session('success'))
         <div class="alert alert-success mt-4 inputform">{{ session('success') }}</div>
     @endif
@@ -35,11 +37,13 @@
         </div>
         <div class="col-md-6 mb-3">
             <label for="inputEmail" class="form-label">Email</label>
-            <input type="email" value="{{ old('email') }}" class="form-control" name="email" id="inputEmail" required>
+            <input type="email" value="{{ old('email') }}" class="form-control" name="email" id="inputEmail"
+                required>
         </div>
         <div class="col-md-6 mb-3">
             <label for="inputPhone" class="form-label">Phone</label>
-            <input type="tel" value="{{ old('phone') }}" class="form-control" name="phone" id="inputPhone" required>
+            <input type="tel" value="{{ old('phone') }}" class="form-control" name="phone" id="inputPhone"
+                required>
         </div>
         <div class="col-md-6 mb-3">
             <label for="inputDepartment" class="form-label">Department</label>
@@ -56,9 +60,7 @@
             <select class="form-select" name="classroom" id="inputClassroom" required>
                 <option selected>Select Classroom...</option>
                 @foreach ($classrooms as $classroom)
-
-                <option value="{{$classroom->id}}">{{$classroom->class_name}}</option>
-
+                    <option value="{{ $classroom->id }}">{{ $classroom->class_name }}</option>
                 @endforeach
 
             </select>
@@ -66,7 +68,8 @@
 
         <div class="col-md-6 mb-3">
             <label for="inputAddress" class="form-label">Address</label>
-            <input type="text" class="form-control" name="address" id="inputAddress" placeholder="1234 Main St" required>
+            <input type="text" class="form-control" name="address" id="inputAddress" placeholder="1234 Main St"
+                required>
         </div>
 
         <div class="col-md-6 mb-3">
@@ -79,4 +82,6 @@
             <button type="submit" name="submit" class="btn btn-primary">submit</button>
         </div>
     </form>
-@endsection
+    {{-- @endsection --}}
+
+</x-layout>

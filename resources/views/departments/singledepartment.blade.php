@@ -1,11 +1,13 @@
-@extends('layout.app')
-@section('title')
+{{-- @extends('layout.app') --}}
+{{-- @section('title')
     Show single department information
-@endsection
+@endsection --}}
 
 
+{{-- @section('singledeaprtment') --}}
+<x-layout>
 
-@section('singledeaprtment')
+    <x-page-title text='Show single department information'></x-page-title>
     <table class="table table-bordered table-hover mt-5 inputform">
 
         <tbody class="table-group-divider">
@@ -36,7 +38,8 @@
         </tbody>
         <td colspan="2">
             <div class="btn-group" role="group">
-                <a href="{{ route('departments.edit', $department->id) }}" target="_blank" class="btn btn-primary btn-sm">
+                <a href="{{ route('departments.edit', $department->id) }}" target="_blank"
+                    class="btn btn-primary btn-sm">
                     Edit
                 </a>
                 <form action="{{ route('departments.destroy', $department->id) }}" method="post">
@@ -52,4 +55,6 @@
 
         </td>
     </table>
-@endsection
+    {{-- @endsection --}}
+
+</x-layout>

@@ -1,10 +1,13 @@
-@extends('layout.app')
+{{-- @extends('layout.app') --}}
 
-@section('title')
+{{-- @section('title')
     Edit single student information
-@endsection
+@endsection --}}
+<x-layout>
 
-@section('editstudent')
+    <x-page-title text='Edit single student information'></x-page-title>
+
+    {{-- @section('editstudent') --}}
     @if (session('success'))
         <div class="alert mt-4 alert-success inputform">
             {{ session('success') }}
@@ -37,8 +40,8 @@
         </div>
         <div class="col-md-6 mb-3">
             <label for="inputLastName" class="form-label">Edit Last Name</label>
-            <input type="text" class="form-control" name="lastname" value="{{ $student->last_name }}" id="inputLastName"
-                required>
+            <input type="text" class="form-control" name="lastname" value="{{ $student->last_name }}"
+                id="inputLastName" required>
         </div>
         <div class="col-md-6 mb-3">
             <label for="inputEmail" class="form-label">Edit Email</label>
@@ -80,7 +83,8 @@
 
         <div class="col-md-6 mb-3">
             <label for="inputCity" class="form-label">Edit City</label>
-            <input type="text" class="form-control" name="city" id="inputCity" value="{{ $student->city }}" required>
+            <input type="text" class="form-control" name="city" id="inputCity" value="{{ $student->city }}"
+                required>
         </div>
 
 
@@ -88,4 +92,6 @@
             <button type="submit" name="submit" class="btn btn-primary">update</button>
         </div>
     </form>
-@endsection
+    {{-- @endsection --}}
+
+</x-layout>
