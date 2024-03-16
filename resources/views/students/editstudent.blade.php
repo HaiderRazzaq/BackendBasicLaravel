@@ -1,8 +1,10 @@
 @extends('layout.app')
 
-@section('title')
+{{-- @section('title')
     Edit single student information
-@endsection
+@endsection --}}
+
+<x-page-title text='Edit single student information'></x-page-title>
 
 @section('editstudent')
     @if (session('success'))

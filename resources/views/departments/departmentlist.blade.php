@@ -1,8 +1,9 @@
 @extends('layout.app')
 
-@section('title')
+{{-- @section('title')
     Departments list
-@endsection
+@endsection --}}
+<x-page-title text='Departments list'></x-page-title>
 
 @section('departmentslist')
     @if (session('success'))

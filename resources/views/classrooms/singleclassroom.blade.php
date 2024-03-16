@@ -1,8 +1,8 @@
 @extends('layout.app')
-@section('title')
+{{-- @section('title')
     Show single class information
-@endsection
-
+@endsection --}}
+<x-page-title text='Show single class information'></x-page-title>
 
 
 @section('singleclassroom')

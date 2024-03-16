@@ -1,10 +1,10 @@
 @extends('layout.app')
 
 
-@section('title')
+{{-- @section('title')
     Add new student
-@endsection
-
+@endsection --}}
+<x-page-title text='Add new student'></x-page-title>
 
 @section('addstudent')
     @if (session('success'))
@@ -56,9 +56,7 @@
             <select class="form-select" name="classroom" id="inputClassroom" required>
                 <option selected>Select Classroom...</option>
                 @foreach ($classrooms as $classroom)
-
-                <option value="{{$classroom->id}}">{{$classroom->class_name}}</option>
-
+                    <option value="{{ $classroom->id }}">{{ $classroom->class_name }}</option>
                 @endforeach
 
             </select>

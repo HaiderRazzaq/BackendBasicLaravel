@@ -1,9 +1,9 @@
 @extends('layout.app')
-@section('title')
+{{-- @section('title')
     Show single department information
-@endsection
+@endsection --}}
 
-
+<x-page-title text='Show single department information'></x-page-title>
 
 @section('singledeaprtment')
     <table class="table table-bordered table-hover mt-5 inputform">

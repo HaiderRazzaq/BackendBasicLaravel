@@ -1,8 +1,10 @@
 @extends('layout.app')
 
-@section('title')
+{{-- @section('title')
     Add new classroom
-@endsection
+@endsection --}}
+<x-page-title text='Add new classroom'></x-page-title>
+
 @section('addclassroom')
 
     @if (session('success'))
@@ -29,11 +31,12 @@
         @csrf
         <div class="col-md-6 mb-3">
             <label for="inputclass" class="form-label">Class Name</label>
-            <input type="text" value="{{old('classname')}}" autofocus class="form-control" name="classname" id="inputclass">
+            <input type="text" value="{{ old('classname') }}" autofocus class="form-control" name="classname"
+                id="inputclass">
         </div>
         <div class="col-md-6 mb-3">
             <label for="inputOwner" class="form-label">Owner</label>
-            <input type="text" value="{{old('classowner')}}" class="form-control" name="classowner" id="inputOwner">
+            <input type="text" value="{{ old('classowner') }}" class="form-control" name="classowner" id="inputOwner">
         </div>
         <div class="col-12">
             <button type="submit" value="submit" name="submit" class="btn btn-primary">submit</button>

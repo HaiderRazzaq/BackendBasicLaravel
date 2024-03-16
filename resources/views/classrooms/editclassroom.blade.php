@@ -1,13 +1,11 @@
 @extends('layout.app')
-
-
-
-@section('title')
+{{-- @section('title')
     Edit classroom
-@endsection
+@endsection --}}
+<x-page-title text='Edit classroom'></x-page-title>
 
 @section('editclassroom')
-{{-- display edit error --}}
+    {{-- display edit error --}}
     @if (session('success'))
         <div class="alert alert-success mt-4 inputform">{{ session('success') }}</div>
     @endif
@@ -15,7 +13,7 @@
         <div class="alert alert-danger mt-4 inputform">{{ session('error') }}</div>
     @endif
 
-{{-- display Validation error --}}
+    {{-- display Validation error --}}
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>

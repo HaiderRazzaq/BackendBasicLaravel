@@ -1,8 +1,10 @@
 @extends('layout.app')
 
-@section('title')
+{{-- @section('title')
     Edit Department information
-@endsection
+@endsection --}}
+
+<x-page-title text='Edit Department information'></x-page-title>
 @section('editdepartment')
     @if (session('success'))
         <div class="alert alert-success mt-4 inputform">
