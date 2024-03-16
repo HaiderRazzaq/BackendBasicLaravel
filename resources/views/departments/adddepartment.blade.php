@@ -1,10 +1,12 @@
-@extends('layout.app')
+{{-- @extends('layout.app') --}}
 
 {{-- @section('title')
     Add new Departments
 @endsection --}}
-<x-page-title text='Add new Departments'></x-page-title>
-@section('adddepartment')
+{{-- @section('adddepartment') --}}
+<x-layout>
+    <x-page-title text='Add new Departments'></x-page-title>
+
 
     @if (session('success'))
         <div class="alert alert-success mt-4 inputform">{{ session('success') }}
@@ -43,4 +45,5 @@
             <button type="submit" name="submit" value="submit" class="btn btn-primary">submit</button>
         </div>
     </form>
-@endsection
+    {{-- @endsection --}}
+</x-layout>

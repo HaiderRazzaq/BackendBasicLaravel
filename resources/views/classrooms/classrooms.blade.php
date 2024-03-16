@@ -1,11 +1,14 @@
-@extends('layout.app')
+{{-- @extends('layout.app') --}}
 
 {{-- @section('title')
     Classrooms lists
 @endsection --}}
-<x-page-title text='Classrooms lists'></x-page-title>
 
-@section('classroomslist')
+{{-- @section('classroomslist') --}}
+
+<x-layout>
+    <x-page-title text='Classrooms lists'></x-page-title>
+
     @if (session('success'))
         <div class="alert alert-success mt-4 inputform">{{ session('success') }}</div>
     @endif
@@ -57,4 +60,6 @@
             </tbody>
         </table>
     </div>
-@endsection
+    {{-- @endsection --}}
+
+</x-layout>

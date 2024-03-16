@@ -1,11 +1,13 @@
-@extends('layout.app')
+{{-- @extends('layout.app') --}}
 
 {{-- @section('title')
     Add new classroom
 @endsection --}}
-<x-page-title text='Add new classroom'></x-page-title>
 
-@section('addclassroom')
+{{-- @section('addclassroom') --}}
+<x-layout>
+
+    <x-page-title text='Add new classroom'></x-page-title>
 
     @if (session('success'))
         <div class="alert alert-success mt-4 inputform">{{ session('success') }}
@@ -36,10 +38,13 @@
         </div>
         <div class="col-md-6 mb-3">
             <label for="inputOwner" class="form-label">Owner</label>
-            <input type="text" value="{{ old('classowner') }}" class="form-control" name="classowner" id="inputOwner">
+            <input type="text" value="{{ old('classowner') }}" class="form-control" name="classowner"
+                id="inputOwner">
         </div>
         <div class="col-12">
             <button type="submit" value="submit" name="submit" class="btn btn-primary">submit</button>
         </div>
     </form>
-@endsection
+    {{-- @endsection --}}
+
+</x-layout>
