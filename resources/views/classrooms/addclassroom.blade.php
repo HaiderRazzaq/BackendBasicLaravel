@@ -36,9 +36,6 @@
             <input type="text" value="{{ old('classname') }}" autofocus class="form-control" name="classname"
                 id="inputclass">
             @error('classname')
-                @php
-                    $message = 'حقل الصف اجباري';
-                @endphp
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
