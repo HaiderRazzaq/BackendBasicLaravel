@@ -35,6 +35,12 @@
             <label for="inputclass" class="form-label">Class Name</label>
             <input type="text" value="{{ old('classname') }}" autofocus class="form-control" name="classname"
                 id="inputclass">
+            @error('classname')
+                @php
+                    $message = 'حقل الصف اجباري';
+                @endphp
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="col-md-6 mb-3">
             <label for="inputOwner" class="form-label">Owner</label>
