@@ -17,14 +17,14 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('email')->unique();
             $table->string('phone');
-            $table->unsignedBigInteger('department')->nullable();
-            $table->unsignedBigInteger('classroom')->nullable();
+            $table->unsignedBigInteger('department_id')->nullable();
+            $table->unsignedBigInteger('classroom_id')->nullable();
             $table->string('address');
             $table->string('city');
             $table->timestamps();
 
-            $table->foreign('department')->references('id')->on('departments');
-            $table->foreign('classroom')->references('id')->on('classrooms');
+            $table->foreign('department_id')->references('id')->on('departments');
+            $table->foreign('classroom_id')->references('id')->on('classrooms');
         });
     }
 

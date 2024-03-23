@@ -37,8 +37,8 @@ class StudentController extends Controller
         $student->last_name = $studentsdata['lastname'];
         $student->email = $studentsdata['email'];
         $student->phone = $studentsdata['phone'];
-        $student->department = $studentsdata['departmentname'];
-        $student->classroom = $studentsdata['classroom'];
+        $student->department_id = $studentsdata['departmentname'];
+        $student->classroom_id = $studentsdata['classroom'];
         $student->address = $studentsdata['address'];
         $student->city = $studentsdata['city'];
         $student->save();
@@ -76,8 +76,8 @@ class StudentController extends Controller
             'last_name' => $studentsdata['lastname'],
             'email' => $studentsdata['email'],
             'phone' => $studentsdata['phone'],
-            'department' => $studentsdata['departmentname'],
-            'classroom' => $studentsdata['classroom'],
+            'department_id' => $studentsdata['departmentname'],
+            'classroom_id' => $studentsdata['classroom'],
             'address' => $studentsdata['address'],
             'city' => $studentsdata['city']]);
         if ($student == true) {

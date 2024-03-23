@@ -35,12 +35,12 @@
             </tr>
             <tr>
                 <th scope="row">Department</th>
-                <td colspan="2">{{ $singlestudent->department }}</td>
+                <td colspan="2">{{ $singlestudent->department->department_name}}</td>
 
             </tr>
             <tr>
                 <th scope="row">Classroom</th>
-                <td colspan="2">{{ $singlestudent->classroom }}</td>
+                <td colspan="2">{{ $singlestudent->classroom->class_name }}</td>
             </tr>
             <tr>
                 <th scope="row">Address</th>

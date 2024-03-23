@@ -40,8 +40,8 @@
                         <td id="lastName">{{ $student['last_name'] }}</td>
                         <td id="email">{{ $student->email }}</td>
                         <td id="phone">{{ $student->phone }}</td>
-                        <td id="department">{{ $student->department }}</td>
-                        <td id="classroom">{{ $student['classroom'] }}</td>
+                        <td id="department">{{ $student->department->department_name }}</td>
+                        <td id="classroom">{{ $student->classroom->class_name }}</td>
                         <td id="address">{{ $student->address }}</td>
                         <td id="city">{{ $student->city }}</td>
                         <td id="createdate">{{ $student->created_at }}</td>

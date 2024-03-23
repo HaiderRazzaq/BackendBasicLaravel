@@ -17,4 +17,13 @@ class student extends Model
         'classroom',
         'address',
         'city'];
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
+    public function classroom()
+    {
+        return $this->belongsTo(ClassRoom::class);
+    }
 }
