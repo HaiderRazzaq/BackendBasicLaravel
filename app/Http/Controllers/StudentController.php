@@ -89,7 +89,8 @@ class StudentController extends Controller
 
     public function destroy($studentid)
     {
-        $student = student::findOrFail($studentid)->delete();
+        // $student = student::findOrFail($studentid)->delete();
+        $student=student::destroy($studentid);
         if ($student) {
             return to_route('students.index')->with('success', 'Student has been deleted !');
         } else {
