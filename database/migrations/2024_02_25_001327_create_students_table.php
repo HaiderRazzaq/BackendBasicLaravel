@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('city');
             $table->timestamps();
 
-            $table->foreign('department_id')->references('id')->on('departments');
-            $table->foreign('classroom_id')->references('id')->on('classrooms');
+            $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');;
+            $table->foreign('classroom_id')->references('id')->on('classrooms')->onDelete('cascade');;
         });
     }
 

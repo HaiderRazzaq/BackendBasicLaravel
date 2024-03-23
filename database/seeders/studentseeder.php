@@ -18,8 +18,8 @@ class studentseeder extends Seeder
         $student->last_name = 'ali';
         $student->email = 'haider' . Str::random(2) . '@example.com';
         $student->phone = '07838844400';
-        $student->department = Str::random(10);
-        $student->classroom = Str::random(10);
+        $student->department_id = rand(1,100);
+        $student->classroom_id = rand(1,100);
         $student->address = Str::random(10);
         $student->city = Str::random(10);
         $student->save();
