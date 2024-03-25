@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreClassroomRequest;
+use App\Http\Requests\UpdateClassroomRequest;
 use App\Models\classroom;
 
 class ClassroomController extends Controller
@@ -42,14 +43,14 @@ class ClassroomController extends Controller
     {$classroom = classroom::FindOrFail($classid);
         return view('classrooms.editclassroom', ['classroom' => $classroom]);}
 
-    public function update($classid)
+    public function update($classid, UpdateClassroomRequest $request)
     {$classroomid = classroom::FindOrFail($classid);
 
-        $class = request()->validate(['classname' => 'required', 'classowner' => 'required']);
+        // $class = request()->validate(['classname' => 'required', 'classowner' => 'required']);
 
         $classroomid->update([
-            'class_name' => $class['classname'],
-            'class_owner' => $class['classowner'],
+            'class_name' => $request['classname'],
+            'class_owner' => $request['classowner'],
         ]);
         if ($classroomid) {
             return back()->with('success', 'The Data Is Update Successfully!');
