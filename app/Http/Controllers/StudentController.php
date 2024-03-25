@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\StoreStudentRequest;
 use App\Models\classroom;
 use App\Models\department;
 use App\Models\student;
@@ -20,27 +20,27 @@ class StudentController extends Controller
         return view('students.addstudent', compact('classrooms', 'departments'));
     }
 
-    public function store()
+    public function store(StoreStudentRequest $request)
     {
-        $studentsdata = request()->validate([
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'email' => ['required', 'email'],
-            'phone' => ['required', 'numeric'],
-            'departmentname' => ['required','exists:departments,id'],
-            'classroom' => ['required','exists:classrooms,id'],
-            'address' => 'required',
-            'city' => 'required',
-        ]);
+        // $studentsdata = request()->validate([
+        //     'firstname' => 'required',
+        //     'lastname' => 'required',
+        //     'email' => ['required', 'email'],
+        //     'phone' => ['required', 'numeric'],
+        //     'departmentname' => ['required','exists:departments,id'],
+        //     'classroom' => ['required','exists:classrooms,id'],
+        //     'address' => 'required',
+        //     'city' => 'required',
+        // ]);
         $student = new student;
-        $student->first_name = $studentsdata['firstname'];
-        $student->last_name = $studentsdata['lastname'];
-        $student->email = $studentsdata['email'];
-        $student->phone = $studentsdata['phone'];
-        $student->department_id = $studentsdata['departmentname'];
-        $student->classroom_id = $studentsdata['classroom'];
-        $student->address = $studentsdata['address'];
-        $student->city = $studentsdata['city'];
+        $student->first_name = $request['firstname'];
+        $student->last_name = $request['lastname'];
+        $student->email = $request['email'];
+        $student->phone = $request['phone'];
+        $student->department_id = $request['departmentname'];
+        $student->classroom_id = $request['classroom'];
+        $student->address = $request['address'];
+        $student->city = $request['city'];
         $student->save();
         return to_route('students.create')->with('success', 'Student added successfully!');
 
