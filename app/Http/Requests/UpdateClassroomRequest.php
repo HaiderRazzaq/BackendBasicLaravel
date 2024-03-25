@@ -26,5 +26,5 @@ class UpdateClassroomRequest extends FormRequest
             'classowner' => 'required',
         ];
     }
-    
+
 }
