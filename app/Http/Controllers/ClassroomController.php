@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreClassroomRequest;
 use App\Models\classroom;
 
 class ClassroomController extends Controller
@@ -13,11 +14,14 @@ class ClassroomController extends Controller
     public function create()
     {return view('classrooms.addclassroom');}
 
-    public function store()
+    public function store(StoreClassroomRequest $request)
     {
-        $classroom = request()->validate(['classname' => 'required', 'classowner' => 'required']);
-        $classname = $classroom['classname'];
-        $classowner = $classroom['classowner'];
+        // $classroom = $request->validate(
+        //     ['classname' => 'required',
+        //         'classowner' => 'required']);
+
+        $classname = $request['classname'];
+        $classowner = $request['classowner'];
         //first way to make insert
         // $newclass = new classroom;
         // $newclass->class_name = $classname;
@@ -27,7 +31,8 @@ class ClassroomController extends Controller
         $newclass = classroom::create(['class_name' => $classname, 'class_owner' => $classowner]);
         if ($newclass) {
             return to_route('classrooms.create')->with('success', 'Add new class Has been successfuly !');
-        } else {return to_route('classrooms.create')->withErrors(['Add new Class Was Faild !']);};}
+        } else {return to_route('classrooms.create')->withErrors(['Add new Class Was Faild !']);};
+    }
 
     public function show($classid)
     {$classroom = classroom::FindOrFail($classid);
@@ -50,9 +55,7 @@ class ClassroomController extends Controller
             return back()->with('success', 'The Data Is Update Successfully!');
         } else {
             return back()->withErrors(["Sorry The Data Is Not Updated"]);
-        }
-
-    }
+        }}
 
     public function destroy($classid)
     {$classroom = classroom::FindOrFail($classid);
