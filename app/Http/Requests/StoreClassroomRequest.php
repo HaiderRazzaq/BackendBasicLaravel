@@ -26,4 +26,12 @@ class StoreClassroomRequest extends FormRequest
             'classowner' => 'required',
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'classname.required' => 'يرجى ادخال اسم الصف',
+            'classowner.required' => 'يرجى ادخال اسم مدير الصف',
+        ];
+    }
 }
