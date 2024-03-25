@@ -68,13 +68,13 @@
 
         <div class="col-md-6 mb-3">
             <label for="inputAddress" class="form-label">Address</label>
-            <input type="text" class="form-control" name="address" id="inputAddress" placeholder="1234 Main St"
+            <input type="text" class="form-control" value="{{old('address')}}" name="address" id="inputAddress" placeholder="1234 Main St"
                 required>
         </div>
 
         <div class="col-md-6 mb-3">
             <label for="inputCity" class="form-label">City</label>
-            <input type="text" class="form-control" name="city" id="inputCity" required>
+            <input type="text" class="form-control" value="{{old('city')}}" name="city" id="inputCity" required>
         </div>
 
 
