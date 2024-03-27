@@ -69,3 +69,7 @@ Route::get('/departments/{departmentid}/edit', [DepartmentController::class, 'ed
 Route::put('/departments/{departmentid}', [DepartmentController::class, 'update'])->name('departments.update');
 
 Route::DELETE('/departments/{departmentid}', [DepartmentController::class, 'destroy'])->name('departments.destroy');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
