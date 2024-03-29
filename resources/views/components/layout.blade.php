@@ -34,8 +34,8 @@
                             Students
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{route('students.create')}}">Add students</a></li>
-                            <li><a class="dropdown-item" href="{{route('students.index')}}">Students list</a></li>
+                            <li><a class="dropdown-item" href="{{ route('students.create') }}">Add students</a></li>
+                            <li><a class="dropdown-item" href="{{ route('students.index') }}">Students list</a></li>
                         </ul>
                     </li>
 
@@ -45,8 +45,10 @@
                             Departments
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{route('departments.create')}}">Add Departments</a></li>
-                            <li><a class="dropdown-item" href="{{route('departments.index')}}">Departments list</a></li>
+                            <li><a class="dropdown-item" href="{{ route('departments.create') }}">Add Departments</a>
+                            </li>
+                            <li><a class="dropdown-item" href="{{ route('departments.index') }}">Departments list</a>
+                            </li>
                         </ul>
                     </li>
 
@@ -60,13 +62,11 @@
                             <li><a class="dropdown-item" href="{{ route('classrooms.index') }}">Classrooms list</a></li>
                         </ul>
                     </li>
-
                 </ul>
             </div>
         </div>
     </nav>
-
-        {{$slot}}
+    {{ $slot }}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">

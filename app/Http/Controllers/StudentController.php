@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Requests\StoreStudentRequest;
 use App\Models\classroom;
 use App\Models\department;
@@ -8,10 +9,15 @@ use App\Models\student;
 
 class StudentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $students = student::all();
-        return view('students.studentslist', compact('students'));}
+        return view('students.studentslist', compact('students'));
+    }
 
     public function create()
     {
@@ -48,14 +54,16 @@ class StudentController extends Controller
     public function show($studentid)
     {
         $student = student::findOrFail($studentid);
-        return view('students.singlestudent', ['singlestudent' => $student]);}
+        return view('students.singlestudent', ['singlestudent' => $student]);
+    }
 
     public function edit($studentid)
     {
-        $departments=department::all();
-        $classrooms=classroom::all();
+        $departments = department::all();
+        $classrooms = classroom::all();
         $student = student::findOrfail($studentid);
-        return view('students.editstudent', compact('student','departments','classrooms'));}
+        return view('students.editstudent', compact('student', 'departments', 'classrooms'));
+    }
 
     public function update($studentid)
     {
@@ -65,8 +73,8 @@ class StudentController extends Controller
             'lastname' => 'required',
             'email' => ['email', 'required'],
             'phone' => ['required', 'numeric'],
-            'departmentname' => ['required','exists:departments,id'],
-            'classroom' => ['required','exists:classrooms,id'],
+            'departmentname' => ['required', 'exists:departments,id'],
+            'classroom' => ['required', 'exists:classrooms,id'],
             'address' => 'required',
             'city' => 'required',
         ]);
@@ -90,7 +98,7 @@ class StudentController extends Controller
     public function destroy($studentid)
     {
         // $student = student::findOrFail($studentid)->delete();
-        $student=student::destroy($studentid);
+        $student = student::destroy($studentid);
         if ($student) {
             return to_route('students.index')->with('success', 'Student has been deleted !');
         } else {

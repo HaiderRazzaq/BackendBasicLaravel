@@ -8,6 +8,10 @@ use App\Models\classroom;
 
 class ClassroomController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {$classrooms = classroom::all();
         return view('classrooms.classrooms', compact('classrooms'));}

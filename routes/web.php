@@ -20,7 +20,7 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::view('/', 'index')->name('index');
+Route::view('/', 'index')->name('index')->middleware('auth');
 
 // Route::get('/classrooms',function(){
 // return view('classrooms.classrooms');
