@@ -41,12 +41,13 @@ Route::PUT('/classrooms/{classid}', [ClassroomController::class, 'update'])->nam
 
 Route::DELETE('/classrooms/{classid}', [ClassroomController::class, 'destroy'])->name('classrooms.destroy');
 
-
 Route::get('/students', [StudentController::class, 'index'])->name('students.index');
 
 Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
 
 Route::post('/students', [StudentController::class, 'store'])->name('students.store');
+
+route::get('/students/softdelete', [StudentController::class, 'soft'])->name('students.soft');
 
 Route::get('/students/{studentid}', [StudentController::class, 'show'])->name('students.show');
 
@@ -55,8 +56,6 @@ Route::get('/students/{studentid}/edit', [StudentController::class, 'edit'])->na
 Route::put('/students/{studentid}', [StudentController::class, 'update'])->name('students.update');
 
 Route::DELETE('/student/{studentid}', [StudentController::class, 'destroy'])->name('students.destroy');
-
-route::get('/students/softdelete',[StudentController::class,'soft'])->name('students.soft');
 
 Route::get('/departments', [DepartmentController::class, 'index'])->name('departments.index');
 

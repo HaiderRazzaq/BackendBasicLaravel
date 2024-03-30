@@ -36,6 +36,7 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('students.create') }}">Add students</a></li>
                             <li><a class="dropdown-item" href="{{ route('students.index') }}">Students list</a></li>
+                            <li><a class="dropdown-item" href="{{route('students.soft')}}">Students Deleted list</a></li>
                         </ul>
                     </li>
 
