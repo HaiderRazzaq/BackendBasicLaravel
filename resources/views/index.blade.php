@@ -9,4 +9,4 @@
 @endsection --}}
 
 <x-layout></x-layout>
-@dd(Auth::user());
+{{-- @dd(Auth::user()); --}}
