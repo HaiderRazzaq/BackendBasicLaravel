@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Auth;
+
 use App\Http\Requests\StoreStudentRequest;
 use App\Models\classroom;
 use App\Models\department;
 use App\Models\student;
+use Illuminate\Support\Facades\Auth;
 
 class StudentController extends Controller
 {
@@ -47,7 +48,7 @@ class StudentController extends Controller
         $student->classroom_id = $request['classroom'];
         $student->address = $request['address'];
         $student->city = $request['city'];
-        $student->user_id=Auth::user()->id;
+        $student->user_id = Auth::user()->id;
         $student->save();
         return to_route('students.create')->with('success', 'Student added successfully!');
 
@@ -105,6 +106,10 @@ class StudentController extends Controller
         } else {
             return to_route('students.index')->withErrors(['Delete Failed !']);
         }
+    }
+
+    public function soft(){
+        return view('students.studentsoft');
     }
 
 }

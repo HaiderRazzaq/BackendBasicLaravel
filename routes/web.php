@@ -56,6 +56,8 @@ Route::put('/students/{studentid}', [StudentController::class, 'update'])->name(
 
 Route::DELETE('/student/{studentid}', [StudentController::class, 'destroy'])->name('students.destroy');
 
+route::get('/students/softdelete',[StudentController::class,'soft'])->name('students.soft');
+
 Route::get('/departments', [DepartmentController::class, 'index'])->name('departments.index');
 
 Route::get('/departments/create', [DepartmentController::class, 'create'])->name('departments.create');
