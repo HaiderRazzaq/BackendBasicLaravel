@@ -64,7 +64,7 @@
             </tr>
             <tr>
                 <th scope="row">Input By</th>
-                <td colspan="2">{{ $singlestudent->user_id }}</td>
+                <td colspan="2">{{ $singlestudent->User->name }}</td>
 
             </tr>
         </tbody>

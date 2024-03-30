@@ -45,8 +45,9 @@
                         <td id="classroom">{{ $student->classroom->class_name }}</td>
                         <td id="address">{{ $student->address }}</td>
                         <td id="city">{{ $student->city }}</td>
-                        <td id="createdate">{{ $student->user_id }}</td>
+                        <td id="createdate">{{ $student->created_at }}</td>
                         <td id="createdate">{{ $student->updated_at }}</td>
+                        <td id="createdate">{{ $student->user->name }}</td>
                         <td>
                             <div class="btn-group" role="group">
                                 <a href="{{ route('students.edit', $student->id) }}" target="_blank"
