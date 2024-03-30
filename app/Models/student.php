@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class student extends Model
 {
@@ -18,6 +19,8 @@ class student extends Model
         'address',
         'city'];
 
+    use SoftDeletes;
+
     public function department()
     {
         return $this->belongsTo(Department::class);
@@ -26,7 +29,8 @@ class student extends Model
     {
         return $this->belongsTo(ClassRoom::class);
     }
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 }
