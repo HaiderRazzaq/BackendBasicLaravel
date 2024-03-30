@@ -26,4 +26,7 @@ class student extends Model
     {
         return $this->belongsTo(ClassRoom::class);
     }
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

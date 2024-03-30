@@ -62,6 +62,11 @@
                 <td colspan="2">{{ $singlestudent->updated_at }}</td>
 
             </tr>
+            <tr>
+                <th scope="row">Input By</th>
+                <td colspan="2">{{ $singlestudent->User->name }}</td>
+
+            </tr>
         </tbody>
         <td colspan="2">
             <div class="btn-group" role="group">

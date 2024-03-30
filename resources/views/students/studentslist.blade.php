@@ -47,7 +47,11 @@
                         <td id="city">{{ $student->city }}</td>
                         <td id="createdate">{{ $student->created_at }}</td>
                         <td id="createdate">{{ $student->updated_at }}</td>
+<<<<<<< HEAD
                         <td id="createdate">{{ $student->user_id }}</td>
+=======
+                        <td id="createdate">{{ $student->user->name }}</td>
+>>>>>>> userinput
                         <td>
                             <div class="btn-group" role="group">
                                 <a href="{{ route('students.edit', $student->id) }}" target="_blank"
