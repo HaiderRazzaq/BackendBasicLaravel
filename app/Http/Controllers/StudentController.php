@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreStudentRequest;
 use App\Models\classroom;
 use App\Models\department;
@@ -47,6 +47,7 @@ class StudentController extends Controller
         $student->classroom_id = $request['classroom'];
         $student->address = $request['address'];
         $student->city = $request['city'];
+        $student->user_id=Auth::user()->id;
         $student->save();
         return to_route('students.create')->with('success', 'Student added successfully!');
 
