@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/welcome', function () {
+Route::middleware('auth')->get('/welcome', function () {
     return view('welcome');
 });
 
