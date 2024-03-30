@@ -8,5 +8,5 @@
 @section('index')
 @endsection --}}
 
-@dd(Auth::user());
 <x-layout></x-layout>
+@dd(Auth::user());

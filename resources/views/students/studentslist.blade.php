@@ -30,6 +30,7 @@
                     <th scope="col">City</th>
                     <th scope="col">Created Date</th>
                     <th scope="col">Last Update</th>
+                    <th scope="col">User Input</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
@@ -44,7 +45,7 @@
                         <td id="classroom">{{ $student->classroom->class_name }}</td>
                         <td id="address">{{ $student->address }}</td>
                         <td id="city">{{ $student->city }}</td>
-                        <td id="createdate">{{ $student->created_at }}</td>
+                        <td id="createdate">{{ $student->user_id }}</td>
                         <td id="createdate">{{ $student->updated_at }}</td>
                         <td>
                             <div class="btn-group" role="group">
