@@ -37,7 +37,7 @@
             </thead>
             <tbody>
                 @foreach ($students as $student)
-                    <tr>
+                    <tr class="table-danger">
                         <td id="firstName">{{ $student->first_name }}</td>
                         <td id="lastName">{{ $student['last_name'] }}</td>
                         <td id="email">{{ $student->email }}</td>
@@ -54,7 +54,7 @@
                             <div class="btn-group" role="group">
                                 <a href="{{ route('students.edit', $student->id) }}" target="_blank"
                                     class="btn btn-primary btn-sm">
-                                    Edit
+                                    Restore
                                 </a>
                                 <a href="{{ route('students.show', $student->id) }}" target="_blank"
                                     rel="noopener noreferrer" class="btn btn-info btn-sm">

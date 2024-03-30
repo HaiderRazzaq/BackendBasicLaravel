@@ -55,7 +55,8 @@ class StudentController extends Controller
     }
     public function show($studentid)
     {
-        $student = student::findOrFail($studentid);
+        // $student = student::findOrFail($studentid);
+        $student = Student::withTrashed()->findOrFail($studentid);
         return view('students.singlestudent', ['singlestudent' => $student]);
     }
 
@@ -109,7 +110,8 @@ class StudentController extends Controller
     }
 
     public function soft(){
-        return view('students.studentsoft');
+        $students=student::onlyTrashed()->get();
+        return view('students.studentsoft',compact('students'));
     }
 
 }
