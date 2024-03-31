@@ -57,6 +57,8 @@ Route::put('/students/{studentid}', [StudentController::class, 'update'])->name(
 
 Route::DELETE('/student/{studentid}', [StudentController::class, 'destroy'])->name('students.destroy');
 
+Route::DELETE('/students/force/{studentid}', [StudentController::class, 'forceDelete'])->name('students.forceDelete');
+
 Route::get('/departments', [DepartmentController::class, 'index'])->name('departments.index');
 
 Route::get('/departments/create', [DepartmentController::class, 'create'])->name('departments.create');

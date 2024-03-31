@@ -114,4 +114,9 @@ class StudentController extends Controller
         return view('students.studentsoft',compact('students'));
     }
 
+    public function forceDelete($studentid){
+        $student=student::onlyTrashed()->findOrFail($studentid)->forceDelete();
+        return back()->with('success','Student has been Force deleted !');
+    }
+
 }

@@ -60,7 +60,7 @@
                                     rel="noopener noreferrer" class="btn btn-info btn-sm">
                                     Show
                                 </a>
-                                <form action="{{ route('students.destroy', $student->id) }}" method="post">
+                                <form action="{{ route('students.forceDelete', $student->id) }}" method="post">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm"

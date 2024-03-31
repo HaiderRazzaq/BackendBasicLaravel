@@ -1,8 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-
-use App\Models\student;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
@@ -22,6 +21,7 @@ class studentseeder extends Seeder
         $student->classroom_id = rand(1,100);
         $student->address = Str::random(10);
         $student->city = Str::random(10);
+        $student->user_id=Auth::user()->id;
         $student->save();
     }
 }
