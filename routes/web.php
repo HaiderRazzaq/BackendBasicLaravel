@@ -47,6 +47,8 @@ Route::get('/students/create', [StudentController::class, 'create'])->name('stud
 
 Route::post('/students', [StudentController::class, 'store'])->name('students.store');
 
+route::post('/students/restore/{studentid}',[StudentController::class,'restore'])->name('students.restore');
+
 route::get('/students/softdelete', [StudentController::class, 'soft'])->name('students.soft');
 
 Route::get('/students/{studentid}', [StudentController::class, 'show'])->name('students.show');
