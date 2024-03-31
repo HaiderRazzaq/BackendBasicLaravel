@@ -121,5 +121,6 @@ class StudentController extends Controller
 
     public function restore($studentid){
         $student=student::onlyTrashed()->where('id',$studentid)->restore();
+        return redirect('/students')->with('success','Student has been Restored !');
     }
 }
