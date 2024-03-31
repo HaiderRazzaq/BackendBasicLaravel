@@ -52,10 +52,14 @@
                         <td id="createdate">{{ $student->user->name }}</td>
                         <td>
                             <div class="btn-group" role="group">
-                                <a href="{{ route('students.edit', $student->id) }}" target="_blank"
-                                    class="btn btn-primary btn-sm">
-                                    Restore
-                                </a>
+                                <form action="{{ route('students.restore', $student->id) }}" method="post">
+                                    @csrf
+                                    <button type="submit" class="btn btn-primary btn-sm"
+                                        onclick="return confirm('This will Restore Item !!')">
+                                        Restore
+                                    </button>
+                                </form>
+
                                 <a href="{{ route('students.show', $student->id) }}" target="_blank"
                                     rel="noopener noreferrer" class="btn btn-info btn-sm">
                                     Show
