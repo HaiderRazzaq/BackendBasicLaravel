@@ -119,4 +119,7 @@ class StudentController extends Controller
         return back()->with('success','Student has been Force deleted !');
     }
 
+    public function restore($studentid){
+        $student=student::onlyTrashed()->where('id',$studentid)->restore();
+    }
 }
