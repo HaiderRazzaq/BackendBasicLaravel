@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreStudentRequest;
 use App\Models\classroom;
+use App\Models\Comment;
 use App\Models\department;
 use App\Models\student;
 use Illuminate\Support\Facades\Auth;
@@ -109,18 +110,23 @@ class StudentController extends Controller
         }
     }
 
-    public function soft(){
-        $students=student::onlyTrashed()->get();
-        return view('students.studentsoft',compact('students'));
+    public function soft()
+    {
+        $students = student::onlyTrashed()->get();
+        return view('students.studentsoft', compact('students'));
     }
 
-    public function forceDelete($studentid){
-        $student=student::onlyTrashed()->findOrFail($studentid)->forceDelete();
-        return back()->with('success','Student has been Force deleted !');
+    public function forceDelete($studentid)
+    {
+        $student = student::onlyTrashed()->findOrFail($studentid)->forceDelete();
+        return back()->with('success', 'Student has been Force deleted !');
     }
 
-    public function restore($studentid){
-        $student=student::onlyTrashed()->where('id',$studentid)->restore();
-        return redirect('/students')->with('success','Student has been Restored !');
+    public function restore($studentid)
+    {
+        $student = student::onlyTrashed()->where('id', $studentid)->restore();
+        return redirect('/students')->with('success', 'Student has been Restored !');
     }
+
+
 }

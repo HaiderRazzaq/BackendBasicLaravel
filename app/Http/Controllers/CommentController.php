@@ -19,4 +19,8 @@ class CommentController extends Controller
         $newcomment->save();
         return back();
     }
+
+    public function show($studentid){
+
+    }
 }

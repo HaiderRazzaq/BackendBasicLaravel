@@ -80,6 +80,12 @@ Route::put('/departments/{departmentid}', [DepartmentController::class, 'update'
 Route::DELETE('/departments/{departmentid}', [DepartmentController::class, 'destroy'])->name('departments.destroy');
 
 
+//this comment for testing  only
+Route::get('/comment/{studentid}',[CommentController::class,'show'])->name('comments.show');
+
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
