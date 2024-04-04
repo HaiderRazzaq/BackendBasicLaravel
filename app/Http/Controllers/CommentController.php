@@ -17,5 +17,6 @@ class CommentController extends Controller
         $newcomment->student_id = $studentid;
         $newcomment->content = request()->comment;
         $newcomment->save();
+        return back();
     }
 }
