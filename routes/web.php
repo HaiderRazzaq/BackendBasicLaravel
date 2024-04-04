@@ -79,6 +79,7 @@ Route::put('/departments/{departmentid}', [DepartmentController::class, 'update'
 
 Route::DELETE('/departments/{departmentid}', [DepartmentController::class, 'destroy'])->name('departments.destroy');
 
+// Route::get('/comment',[StudentController::class,'comment'])->name('students.comment');
 
 Auth::routes();
 

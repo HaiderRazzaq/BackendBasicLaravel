@@ -128,5 +128,9 @@ class StudentController extends Controller
         return redirect('/students')->with('success', 'Student has been Restored !');
     }
 
+    // public function comment(){
+    //     $student=student::find(13)->comment;
+    //     dd ($student);
+    // }
 
 }
