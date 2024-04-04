@@ -34,7 +34,4 @@ class student extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function comments(){
-        $this->hasMany(Comment::class, "student_id");
-    }
 }
