@@ -138,7 +138,7 @@
                 @foreach($singlestudent->comment as $getcomment)
 
                 <div class="comment-header">
-                    <span class="username">JohnDoe</span>
+                    <span class="username">{{ $getcomment->user_id }}</span>
                     <span class="comment-time">{{ $getcomment->created_at }}</span>
                 </div>
                 <div class="comment-body">
