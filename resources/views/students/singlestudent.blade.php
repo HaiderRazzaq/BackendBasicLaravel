@@ -91,12 +91,12 @@
     <!-- Comment Section -->
     <div class="container mt-5">
         <h2>Comments</h2>
-        <form action="{{ route('comments.store') }}" method="post">
+        <form action="{{ route('comments.store',$singlestudent->id) }}" method="post">
             @csrf
             <div class="form-group">
                 <label for="comment">Add a comment:</label>
                 <textarea class="form-control" name="comment" id="comment" rows="3" required></textarea>
-                <input type="hidden" value="{{ $singlestudent->id }}" name="studentid">
+                {{-- <input type="hidden" value="{{ $singlestudent->id }}" name="studentid"> --}}
             </div>
             <button type="submit" name="submit" class="btn btn-primary">new comment</button>
         </form>

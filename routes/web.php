@@ -49,7 +49,7 @@ Route::get('/students/create', [StudentController::class, 'create'])->name('stud
 
 Route::post('/students', [StudentController::class, 'store'])->name('students.store');
 
-Route::post('/students/comment',[CommentController::class,'store'])->name('comments.store');
+Route::post('/students/comment/{studentid}',[CommentController::class,'store'])->name('comments.store');
 
 route::post('/students/restore/{studentid}',[StudentController::class,'restore'])->name('students.restore');
 
