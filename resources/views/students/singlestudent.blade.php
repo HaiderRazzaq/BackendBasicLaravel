@@ -135,13 +135,16 @@
         <hr>
         <div id="comments">
             <div class="comment">
+                @foreach($singlestudent->comment as $getcomment)
+
                 <div class="comment-header">
                     <span class="username">JohnDoe</span>
-                    <span class="comment-time">April 4, 2024</span>
+                    <span class="comment-time">{{ $getcomment->created_at }}</span>
                 </div>
                 <div class="comment-body">
-                    <div class="alert alert-secondary" role="alert">new comment</div>
+                    <div class="alert alert-secondary" role="alert">{{ $getcomment->content }}</div>
                 </div>
+                @endforeach
             </div>
         </div>
 
