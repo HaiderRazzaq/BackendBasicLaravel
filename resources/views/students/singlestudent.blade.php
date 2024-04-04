@@ -3,6 +3,38 @@
     Show single student information
 @endsection --}}
 <x-layout>
+    <style>
+        .comment {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .username {
+            font-weight: bold;
+        }
+
+        .comment-time {
+            font-size: 0.9em;
+        }
+
+        .comment-body {
+            color: #333;
+        }
+
+        .alert {
+            margin-bottom: 0;
+        }
+    </style>
 
     <x-page-title text='Show single student information'></x-page-title>
     {{-- @section('singlestudent') --}}
@@ -91,7 +123,7 @@
     <!-- Comment Section -->
     <div class="container mt-5">
         <h2>Comments</h2>
-        <form action="{{ route('comments.store',$singlestudent->id) }}" method="post">
+        <form action="{{ route('comments.store', $singlestudent->id) }}" method="post">
             @csrf
             <div class="form-group">
                 <label for="comment">Add a comment:</label>
@@ -102,10 +134,17 @@
         </form>
         <hr>
         <div id="comments">
-
-            <div class="alert alert-secondary" role="alert">new comment</div>
-
+            <div class="comment">
+                <div class="comment-header">
+                    <span class="username">JohnDoe</span>
+                    <span class="comment-time">April 4, 2024</span>
+                </div>
+                <div class="comment-body">
+                    <div class="alert alert-secondary" role="alert">new comment</div>
+                </div>
+            </div>
         </div>
+
     </div>
 
 </x-layout>
