@@ -96,6 +96,7 @@
             <div class="form-group">
                 <label for="comment">Add a comment:</label>
                 <textarea class="form-control" name="comment" id="comment" rows="3" required></textarea>
+                <input type="hidden" value="{{ $singlestudent->id }}" name="studentid">
             </div>
             <button type="submit" name="submit" class="btn btn-primary">new comment</button>
         </form>

@@ -49,6 +49,8 @@ Route::get('/students/create', [StudentController::class, 'create'])->name('stud
 
 Route::post('/students', [StudentController::class, 'store'])->name('students.store');
 
+Route::post('/students/comment',[CommentController::class,'store'])->name('comments.store');
+
 route::post('/students/restore/{studentid}',[StudentController::class,'restore'])->name('students.restore');
 
 route::get('/students/softdelete', [StudentController::class, 'soft'])->name('students.soft');
@@ -77,7 +79,6 @@ Route::put('/departments/{departmentid}', [DepartmentController::class, 'update'
 
 Route::DELETE('/departments/{departmentid}', [DepartmentController::class, 'destroy'])->name('departments.destroy');
 
-Route::post('/students/comment/{$studentid}',[CommentController::class,'store'])->name('comments.store');
 
 Auth::routes();
 
