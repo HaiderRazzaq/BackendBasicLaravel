@@ -35,7 +35,7 @@
             </tr>
             <tr>
                 <th scope="row">Department</th>
-                <td colspan="2">{{ $singlestudent->department->department_name}}</td>
+                <td colspan="2">{{ $singlestudent->department->department_name }}</td>
 
             </tr>
             <tr>
@@ -87,5 +87,23 @@
         </td>
     </table>
     {{-- @endsection --}}
+
+    <!-- Comment Section -->
+    <div class="container mt-5">
+        <h2>Comments</h2>
+        <form action="" method="post">
+            <div class="form-group">
+                <label for="comment">Add a comment:</label>
+                <textarea class="form-control" name="comment" id="comment" rows="3" required></textarea>
+            </div>
+            <button type="submit" name="submit" class="btn btn-primary">new comment</button>
+        </form>
+        <hr>
+        <div id="comments">
+
+            <div class="alert alert-secondary" role="alert">new comment</div>
+
+        </div>
+    </div>
 
 </x-layout>
