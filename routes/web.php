@@ -77,7 +77,7 @@ Route::put('/departments/{departmentid}', [DepartmentController::class, 'update'
 
 Route::DELETE('/departments/{departmentid}', [DepartmentController::class, 'destroy'])->name('departments.destroy');
 
-Route::post('/students/comment',[CommentController::class,'store'])->name('comments.store');
+Route::post('/students/comment/{$studentid}',[CommentController::class,'store'])->name('comments.store');
 
 Auth::routes();
 
