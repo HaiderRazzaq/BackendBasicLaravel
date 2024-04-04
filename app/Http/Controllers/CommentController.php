@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -16,8 +17,9 @@ class CommentController extends Controller
         $newcomment = new Comment;
         $newcomment->student_id = $studentid;
         $newcomment->content = request()->comment;
+        $newcomment->user_id=Auth::user()->id;
         $newcomment->save();
         return back();
     }
-    
+
 }
