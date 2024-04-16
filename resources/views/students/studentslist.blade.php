@@ -45,7 +45,7 @@
                         <td id="classroom">{{ $student->classroom->class_name }}</td>
                         <td id="address">{{ $student->address }}</td>
                         <td id="city">{{ $student->city }}</td>
-                        <td id="createdate">{{ $student->created_at }}</td>
+                        <td id="createdate">{{ $student->created_at->diffForHumans() }}</td>
                         <td id="createdate">{{ $student->updated_at }}</td>
                         <td id="createdate">{{ $student->user->name }}</td>
                         <td>
