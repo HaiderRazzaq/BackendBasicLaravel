@@ -2,9 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
+use App\Models\classroom;
+use App\Models\department;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class student extends Model
 {
@@ -23,11 +26,11 @@ class student extends Model
 
     public function department()
     {
-        return $this->belongsTo(Department::class);
+        return $this->belongsTo(department::class);
     }
     public function classroom()
     {
-        return $this->belongsTo(ClassRoom::class);
+        return $this->belongsTo(classroom::class);
     }
     public function user()
     {
