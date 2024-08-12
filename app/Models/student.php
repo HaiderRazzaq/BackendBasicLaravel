@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\User;
+use App\Models\Comment;
 use App\Models\classroom;
 use App\Models\department;
 use Illuminate\Database\Eloquent\Model;
